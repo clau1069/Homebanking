@@ -1,228 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style-cards.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="shortcut icon"
-      href="../assets/logo-pig.png"
-      type="image/x-icon"
-    />
-    <!-- animaciones divs -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <title>Your Cards || Mindhub Brothers</title>
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav
-      class="navegador d-flex flex-column justify-content-center align-items-center"
-    >
-      <div>
-        <a href="#" class="user-nav nav"></a>
-        <span class="mensaje-icon">User</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style-cards.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../assets/logo-pig.png" type="image/x-icon" />
+  <!-- animaciones divs -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Your Cards || Mindhub Brothers</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- NAV desktop--------------- -->
+    <div class="nav-desktop justify-content-between align-items-center div-nav py-1">
+      <div class="ms-4 d-flex justify-content-center align-items-center">
+        <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+        <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
       </div>
-      <div>
-        <a href="#" class="home-nav nav"></a>
-        <span class="mensaje-icon">Home</span>
+      <nav class="d-flex justify-content-evenly align-items-center">
+        <a class="a" href="../index.html">Home</a>
+        <a class="a" href="#">Cards</a>
+        <a class="a" href="./transfers.html">Transfers</a>
+        <button class="a log-out" @click="cerrarSesion">Log out</button>
+      </nav>
+    </div>
+    <!-- NAV movil--------------- -->
+    <div class="justify-content-center div-sup-movil align-items-center">
+      <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+      <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+    </div>
+    <nav class="menu-movil justify-content-evenly align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="../index.html" class="menu-movil-home"></a>
+        <p class="p-nav-movil">Home</p>
       </div>
-      <div>
-        <a href="#" class="card-nav nav"></a>
-        <span class="mensaje-icon">Cards</span>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class="menu-movil-cards"></a>
+        <p class="p-nav-movil">Cards</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="./transfers.html" class="menu-movil-transfer"></a>
+        <p class="p-nav-movil">transfer</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class=" menu-movil-logout" @click="cerrarSesion"></a>
+        <p class="p-nav-movil">Log out</p>
       </div>
     </nav>
-    <div id="app">
-      <div
-        class="d-flex barra-sup-header justify-content-center align-items-center"
-      >
-        <div class="logo"></div>
-        <h1 class="h1-logo">Mindhub Brothers</h1>
+    <!-- HEADER----------------------  -->
+    <header class="d-flex container-fluid">
+      <div class="header-izquierdo d-flex justify-content-center align-items-center">
+        <h1 class="titulo-desktop">Your</h1>
+        <h1 class="titulo-desktop">Cards</h1>
+        <div class="titulo-movil">
+          <h1>Your Cards</h1>
+        </div>
+        <a class="a a2 btn-create-card" href="create-cards.html" class="btn-create-new-card">Create new Card</a>
       </div>
-      <header class="d-flex container-fluid">
-        <div
-          class="header-izquierdo d-flex flex-column justify-content-center align-items-center"
-        >
-          <h1>Your</h1>
-          <h1>Cards</h1>
-          <a href="#section1"
-            ><img
-              class="doble-flecha-header d-flex container-fluid justify-content-center"
-              src="../assets/icons8-double-down.gif"
-              alt=""
-          /></a>
-        </div>
-        <img
-          class="header-derecho"
-          src="../assets/Credit card-bro.svg"
-          alt=""
-        />
-      </header>
-      <main>
-        <section
-          id="section1"
-          class="section1 d-flex justify-content-center align-items-center"
-        >
-          <div
-            class="cartaa"
-            v-for="card in cards"
-            v-show="card.type == 'CREDIT'"
-          >
-            <!-- FRONT CARD -->
-            <div
-              class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center"
-            >
+      <img class="header-derecho" src="../assets/Credit card-bro.svg" alt="" />
+    </header>
+    <main>
+      <section id="section1" class="section1 d-flex flex-column justify-content-center align-items-center">
+        <!-- DIV CONTENEDOR DE TODAS LAS TARJETAS -->
+        <div class="div-cont-all-cards d-flex justify-content-evenly" id="cards">
+          <div class="contenedor-debit-credit d-flex flex-column align-items-center">
+            <h2>CREDIT CARDS</h2>
+
+            <div class="cartaa" v-for="card in cards" v-show="card.type == 'CREDIT' & card.status== true">
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="eliminar"
+                  @click="aparecerModal='si', aparecerDivConfirm='si', numberCardToRemove=card.number, searchInfoCardToremove()">
+                  Remove
+                </button>
+                <p v-show="card.fromDate.slice(2,4)<actualYear" class="text-danger p-0 m-0">
+                  Expired
+                </p>
+              </div>
+              <!-- FRONT CARD -->
               <div
-                class="credit-card d-flex justify-content-center align-items-center"
-                :class="card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'"
-              >
-                <div class="cont-info-card">
-                  <p class="card-banco">MINDHUB BROTHERS</p>
-                  <p class="card-color-tipo">{{card.color}}</p>
-                  <div
-                    class="card-number d-flex align-items-center justify-content-evenly"
-                  >
-                    <p>{{card.number.toString().slice(0,4)}}</p>
-                    <p>{{card.number.toString().slice(4,8)}}</p>
-                    <p>{{card.number.toString().slice(8,12)}}</p>
-                    <p>{{card.number.toString().slice(12,16)}}</p>
-                  </div>
-                  <div class="card-fechas d-flex align-items-center">
-                    <div class="d-flex flex-column div-fechas me-3">
-                      <p class="m-0 card-descr-fecha me-2">trhu</p>
-                      <p
-                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
-                      >
-                        {{card.trhuDate.slice(2,7)}}
-                      </p>
+                class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center">
+                <div class="credit-card d-flex justify-content-center align-items-center"
+                  :class="card.fromDate.slice(2,4)<actualYear? 'expired-card': card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'">
+                  <div class="cont-info-card">
+                    <p :class="card.fromDate.slice(2,4)<actualYear ? 'card-banco card-banco-expired': 'card-banco'">
+                      MINDHUB BROTHERS
+                    </p>
+                    <p class="card-color-tipo">{{card.color}}</p>
+                    <div class="card-number d-flex align-items-center justify-content-evenly">
+                      <p>{{card.number.toString().slice(0,4)}}</p>
+                      <p>{{card.number.toString().slice(5,9)}}</p>
+                      <p>{{card.number.toString().slice(10,14)}}</p>
+                      <p>{{card.number.toString().slice(15,19)}}</p>
                     </div>
-                    <div class="d-flex flex-column div-fechas">
-                      <p class="m-0 card-descr-fecha me-2">from</p>
-                      <p
-                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
-                      >
-                        {{card.fromDate.slice(2,7)}}
-                      </p>
+                    <div class="card-fechas d-flex align-items-center">
+                      <div class="d-flex flex-column div-fechas me-3">
+                        <p class="m-0 card-descr-fecha me-2">from</p>
+                        <p class="m-0 d-flex justify-content-center align-items-center card-fecha">
+                          {{card.fromDate.slice(2,7)}}
+                        </p>
+                      </div>
+                      <div class="d-flex flex-column div-fechas">
+                        <p class="m-0 card-descr-fecha me-2">trhu</p>
+                        <p class="m-0 d-flex justify-content-center align-items-center card-fecha">
+                          {{card.trhuDate.slice(2,7)}}
+                        </p>
+                      </div>
                     </div>
+                    <p class="mt-2 card-titular">
+                      {{card.cardholder.toUpperCase()}}
+                    </p>
+                    <p class="card-type">{{card.type}}</p>
                   </div>
-                  <p class="mt-2 card-titular">
-                    {{card.cardholder.toUpperCase()}}
+                </div>
+              </div>
+              <!-- BACK CARD -->
+              <div class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center">
+                <div class="credit-card-back d-flex justify-content-end align-items-center"
+                  :class="card.fromDate.slice(2,4)<actualYear? 'expired-card-back': 'back-card'">
+                  <p class="cvv-card" :class="card.fromDate.slice(2,4)<actualYear? 'text-white': cvv-card">
+                    {{card.cvv}}
                   </p>
-                  <p class="card-type">{{card.type}}</p>
                 </div>
               </div>
             </div>
-            <!-- BACK CARD -->
-            <div
-              class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center"
-            >
-              <div
-                class="credit-card-back d-flex justify-content-end align-items-center"
-              >
-                <p class="cvv-card">{{card.cvv}}</p>
-              </div>
-            </div>
           </div>
-          <div
-            class="cartaa"
-            v-for="card in cards"
-            v-show="card.type == 'DEBIT'"
-          >
-            <!-- FRONT CARD -->
-            <div
-              class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center"
-            >
+
+          <div class="contenedor-debit-credit d-flex flex-column align-items-center">
+            <h2>DEBIT CARDS</h2>
+            <div class="cartaa" v-for="card in cards" v-show="card.type == 'DEBIT' & card.status== true">
+              <div class="d-flex justify-content-between align-items-center">
+                <button class="eliminar"
+                  @click="aparecerModal='si', aparecerDivConfirm='si', numberCardToRemove=card.number, searchInfoCardToremove()">
+                  Remove
+                </button>
+                <p v-show="card.fromDate.slice(2,4)<actualYear" class="text-danger p-0 m-0">
+                  Expired
+                </p>
+              </div>
+              <!-- FRONT CARD -->
               <div
-                class="credit-card d-flex justify-content-center align-items-center"
-                :class="card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'"
-              >
-                <div class="cont-info-card">
-                  <p class="card-banco">MINDHUB BROTHERS</p>
-                  <p class="card-color-tipo">{{card.color}}</p>
-                  <div
-                    class="card-number d-flex align-items-center justify-content-evenly"
-                  >
-                    <p>{{card.number.toString().slice(0,4)}}</p>
-                    <p>{{card.number.toString().slice(4,8)}}</p>
-                    <p>{{card.number.toString().slice(8,12)}}</p>
-                    <p>{{card.number.toString().slice(12,16)}}</p>
-                  </div>
-                  <div class="card-fechas d-flex align-items-center">
-                    <div class="d-flex flex-column div-fechas me-3">
-                      <p class="m-0 card-descr-fecha me-2">trhu</p>
-                      <p
-                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
-                      >
-                        {{card.trhuDate.slice(2,7)}}
-                      </p>
+                class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center">
+                <div class="credit-card d-flex justify-content-center align-items-center"
+                  :class="card.fromDate.slice(2,4)<actualYear? 'expired-card' : card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'">
+                  <div class="cont-info-card">
+                    <p :class="card.fromDate.slice(2,4)<actualYear ? 'card-banco card-banco-expired': 'card-banco'">
+                      MINDHUB BROTHERS
+                    </p>
+                    <p class="card-color-tipo">{{card.color}}</p>
+                    <div class="card-number d-flex align-items-center justify-content-evenly">
+                      <p>{{card.number.toString().slice(0,4)}}</p>
+                      <p>{{card.number.toString().slice(5,9)}}</p>
+                      <p>{{card.number.toString().slice(10,14)}}</p>
+                      <p>{{card.number.toString().slice(15,19)}}</p>
                     </div>
-                    <div class="d-flex flex-column div-fechas">
-                      <p class="m-0 card-descr-fecha me-2">from</p>
-                      <p
-                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
-                      >
-                        {{card.fromDate.slice(2,7)}}
-                      </p>
+                    <div class="card-fechas d-flex align-items-center">
+                      <div class="d-flex flex-column div-fechas me-3">
+                        <p class="m-0 card-descr-fecha me-2">from</p>
+                        <p class="m-0 d-flex justify-content-center align-items-center card-fecha">
+                          {{card.fromDate.slice(2,7)}}
+                        </p>
+                      </div>
+                      <div class="d-flex flex-column div-fechas">
+                        <p class="m-0 card-descr-fecha me-2">trhu</p>
+                        <p class="m-0 d-flex justify-content-center align-items-center card-fecha">
+                          {{card.trhuDate.slice(2,7)}}
+                        </p>
+                      </div>
                     </div>
+                    <p class="mt-2 card-titular">
+                      {{card.cardholder.toUpperCase()}}
+                    </p>
+                    <p class="card-type">{{card.type}}</p>
                   </div>
-                  <p class="mt-2 card-titular">
-                    {{card.cardholder.toUpperCase()}}
+                </div>
+              </div>
+
+              <!-- BACK CARD -->
+              <div class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center">
+                <div class="credit-card-back d-flex justify-content-end align-items-center"
+                  :class="card.fromDate.slice(2,4)<actualYear? 'expired-card-back': 'back-card'">
+                  <p class="cvv-card" :class="card.fromDate.slice(2,4)<actualYear? 'text-white': cvv-card">
+                    {{card.cvv}}
                   </p>
-                  <p class="card-type">{{card.type}}</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <!-- MODAL--------------- -->
+        <div v-if="aparecerModal=='si'"
+          class="text-dark modalWindow d-flex flex-column justify-content-center align-items-center">
+          <div class="d-flex flex-column">
+            <div @click="cancelTransaction" class="cancel-transaction align-self-end"></div>
+            <div class="contenedor-mensaje-modal d-flex">
+              <!-- DIV CONFIRMAR OPERACION -->
+              <div v-if="aparecerDivConfirm=='si'" class="div-confirm">
+                <h3 class="text-center py-2">Verification</h3>
+                <ul class="ms-4 py-4">
+                  <p class="text-center a mje-pay">
+                    Are you sure you want to delete the card?
+                  </p>
+                  <li>Number:</li>
+                  <p class="ps-2">{{numberCardToRemove}}</p>
+                  <li>Cardholder:</li>
+                  <p class="ps-2">{{cardToRemove.cardholder}}</p>
+                </ul>
+                <div class="pb-2 d-flex justify-content-center align-items-center">
+                  <button @click="aparecerDivConfirm='no', removeCard()" class="btn-confirm">
+                    Confirm
+                  </button>
+                  <button @click="cancelTransaction" class="cancel-confirm">
+                    Cancel
+                  </button>
+                </div>
+              </div>
+              <!-- DIV OPERACION EXITOSA -->
+              <div v-if="aparecerDivSuccess=='si'" class="div-success d-flex justify-content-between">
+                <div>
+                  <div class="checked"></div>
+                  <p class="text-div-success d-flex justify-content-center align-items-center">
+                    Removed successfully!
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <a @click="reload" class="btn-see-cards a">OK</a>
+                  </div>
+                </div>
 
-            <!-- BACK CARD -->
-            <div
-              class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center"
-            >
-              <div
-                class="credit-card-back d-flex justify-content-end align-items-center"
-              >
-                <p class="cvv-card">{{card.cvv}}</p>
+                <div class="cont-verde d-flex justify-content-center align-items-center mje-great">
+                  Great!
+                </div>
+              </div>
+              <!-- DIV OCURRIÓ UN ERRROR -->
+              <div v-if="aparecerDivError=='si'" class="div-error d-flex justify-content-between">
+                <div>
+                  <div class="img-error"></div>
+
+                  <div class="text-div-error d-flex flex-column justify-content-center align-items-center">
+                    <p class="mje-error">Something went wrong</p>
+                    <p class="ms-4">{{errorPetición}}</p>
+                  </div>
+
+                  <div class="d-flex justify-content-center">
+                    <button @click="cancelTransaction" class="btn-ok a">
+                      Ok
+                    </button>
+                  </div>
+                </div>
+                <div class="cont-rojo d-flex justify-content-center align-items-center mje-great">
+                  Mmm...
+                </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
-      <footer
-        class="footer text-white d-flex justify-content-between align-items-center"
-      >
-        <div class="d-flex">
-          <img
-            class="footer-icon"
-            src="../assets/icons8-pig-60-gray.png"
-            alt=""
-          />
-          <p class="tfooter">MINDHUB BROTHERS</p>
         </div>
+      </section>
+    </main>
+    <footer class="footer text-white d-flex justify-content-between align-items-center">
+      <div class="d-flex">
+        <img class="footer-icon" src="../assets/icons8-pig-60-gray.png" alt="" />
+        <p class="tfooter">MINDHUB BROTHERS</p>
+      </div>
 
-        <div>
-          <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
-        </div>
-      </footer>
-    </div>
+      <div>
+        <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+      </div>
+    </footer>
+  </div>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="cards.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="cards.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>

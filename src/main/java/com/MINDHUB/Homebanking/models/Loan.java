@@ -13,11 +13,11 @@ public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private long Id;
+    private long id;
     private String Name;
     private double maxAmount;
+    private double percentaje;
     @ElementCollection
-
     private List<Integer> payments;  //?propiedad multivaluada, sigue siendo una propiedad simple-
     @OneToMany(mappedBy = "loan", fetch = FetchType.EAGER)
     private Set<ClientLoan> clientLoans = new HashSet<>();
@@ -26,16 +26,17 @@ public class Loan {
     public Loan() {
     }
 
-    public Loan(String name, double maxAmount, List<Integer> payments) {
+    public Loan(String name, double maxAmount, double percentaje, List<Integer> payments) {
         Name = name;
         this.maxAmount = maxAmount;
+        this.percentaje = percentaje;
         this.payments = payments;
     }
 
-    //++GETTERS &SETTERS .
+//++GETTERS &SETTERS .
 
     public long getId() {
-        return Id;
+        return id;
     }
     public String getName() {
         return Name;
@@ -49,6 +50,15 @@ public class Loan {
     public void setMaxAmount(double maxAmount) {
         this.maxAmount = maxAmount;
     }
+
+    public double getPercentaje() {
+        return percentaje;
+    }
+
+    public void setPercentaje(double percentaje) {
+        this.percentaje = percentaje;
+    }
+
     public List<Integer> getPayments() {
         return payments;
     }

@@ -1,3 +1,17 @@
+.espacio {
+  width: 100%;
+  height: 10rem;
+}
+.a {
+  text-decoration: none;
+  color: white;
+  background-color: #ff8b7b;
+  padding: 2px 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 6px 15px;
+}
 /* HEADEEER ACCOUNTS2 */
 .header-desktop {
   display: initial !important;
@@ -108,12 +122,19 @@ header {
   }
   .menu-movil {
     width: 100%;
-    height: 3rem;
+    height: 4.4rem;
     background-color: #ffffff;
     position: fixed;
     bottom: 0;
     z-index: 2;
     border-radius: 10px 10px 0 0;
+    padding-top: 0.2rem;
+  }
+  .p-nav-movil {
+    font-size: 1rem;
+    margin: 0;
+    margin-top: 0.2rem;
+    line-height: 1rem;
   }
   .menu-movil a {
     width: 40px;
@@ -133,6 +154,9 @@ header {
   .menu-movil-profile {
     background-image: url(../assets/user-white.png);
   }
+  .menu-movil-transfer {
+    background-image: url(../assets/accounts/icon-transfer.png);
+  }
   .div-welcome-movil {
     height: 100%;
   }
@@ -140,9 +164,6 @@ header {
 /* main */
 main {
   width: 100%;
-}
-.text-h2-main {
-  margin-left: 16rem;
 }
 
 .text-success {
@@ -153,32 +174,69 @@ main {
   border: rgb(26, 102, 202) solid 1px;
   color: rgb(26, 102, 202);
   box-sizing: border-box;
-  padding: 2rem;
-  background-color: rgb(196, 211, 230) !important;
+  padding: 1rem;
+  background-color: #3387cc !important;
+  border: #3387cc 1px solid;
 }
 .a-carta {
+  cursor: pointer;
   text-decoration: none;
   border: none;
 }
+
 .div-carta:hover {
-  background-color: rgb(45, 86, 179) !important;
-  border: rgb(0, 0, 0) 1px solid !important;
+  background-color: #ff8b7b !important;
+  border: #fc4441 1px solid !important;
+}
+.div-carta:hover .a-carta p {
+  color: white !important;
+}
+
+.balance {
+  color: rgb(183, 255, 183);
+}
+.div-carta:hover .balance {
+  color: rgb(255, 255, 255) !important;
+}
+.btn-see-more {
+  padding: 0.7rem;
+  background-color: rgb(255, 255, 255);
+}
+.trash {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
 @media only screen and (max-width: 700px) {
   .card {
     padding: 2rem !important;
     margin: 1rem !important;
   }
+  .what-do-you-whant h2 {
+    color: #3b3b3b !important;
+    border-bottom: #3d3d3d 1px solid !important;
+  }
 }
 /* section1 */
-.what-do-you-whant {
-  width: 100%;
-  height: 8rem;
-}
 .section-1 {
   width: 100%;
-  height: 60rem;
+  height: 100vh;
   background-color: rgb(221, 221, 221);
+  background-image: url(../assets/fondos/fondo-1.png);
+}
+.what-do-you-whant {
+  padding-top: 5rem;
+  padding-left: 10rem !important;
+}
+.what-do-you-whant h2 {
+  font-size: 4rem;
+  border-bottom: #ffffff 1px solid;
+}
+
+.card-main-options {
+  border: none;
+  text-decoration: none;
+  height: 25rem;
 }
 .cartas-options {
   margin-top: 5rem;
@@ -188,6 +246,13 @@ main {
   height: 20rem;
   padding-top: 3rem;
   background-repeat: no-repeat;
+}
+.btn {
+  border-radius: 40px !important;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #ff5652 !important;
+  color: white !important;
 }
 .img-chanchito {
   background-image: url(../assets/Piggy\ bank-amico.svg);
@@ -206,37 +271,112 @@ main {
 .bg-gray:hover {
   background-color: rgb(37, 41, 46);
 }
-.card-main-options {
-  border: none;
-  text-decoration: none;
 
-  height: 25rem;
+@media only screen and (max-width: 700px) {
+  .section-1 {
+    height: 100vh !important;
+    justify-content: space-evenly;
+    background-position-y: 10%;
+    background-position-x: 40%;
+  }
+  .what-do-you-whant {
+    padding-top: 3rem;
+    padding-left: 0 !important;
+    justify-content: center;
+  }
+  .cartas-options {
+    margin-top: 0;
+  }
+  .what-do-you-whant h2 {
+    font-size: 2rem;
+  }
+  .card-main-options {
+    height: 12rem;
+  }
+  .option-text {
+    display: none;
+  }
+  .bg-gray {
+    background-color: rgb(37, 41, 46);
+    box-shadow: none;
+  }
+  .img-card-section1 {
+    width: 10rem;
+    height: 10rem;
+  }
+  .loans-img {
+    display: none !important;
+  }
 }
 /* section2 */
 .section-2 {
   width: 100%;
-  min-height: 50rem;
+  min-height: 100vh;
+}
+.section-2 > div {
+  width: 50%;
 }
 .img-accounts {
-  width: 50rem;
+  width: 50%;
   height: 40rem;
 }
 .loans-img {
   width: 40rem;
   height: 40rem;
 }
-.btn-see-more {
-  padding: 0.7rem;
-  background-color: rgb(140, 159, 168);
+
+.img-accounts-2 {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .div-cont-accounts {
+    width: 100% !important;
+    height: 100%;
+    justify-content: start !important;
+  }
+  .section-2 .img-accounts {
+    display: none;
+  }
+  .div-carta {
+    width: 20rem;
+    padding: 0.4rem;
+  }
+  .img-accounts-2 {
+    display: initial;
+    height: 15rem;
+  }
+  .section-2 {
+    height: 230px !important;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .loans-img {
+    display: none;
+  }
+  .div-section3 {
+    width: 100vw !important;
+  }
+  section-3 {
+    width: 100vw !important;
+    background: none !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 }
 /* section3 */
 
 .section-3 {
   width: 100%;
-  min-height: 50rem;
+  height: 100vh;
+  background-image: url(../assets/fondos/fondo-2.png);
 }
 .div-section3 {
   width: 50%;
+}
+.div-section3 h2 {
+  color: white;
 }
 .section3-texto {
   width: 36rem;
@@ -254,4 +394,124 @@ main {
   background-color: rgb(202, 202, 202);
   padding: 1rem 3rem 1rem 3rem;
   box-shadow: 10px 5px 5px rgba(99, 99, 99, 0.5);
+}
+.div-btns-newAccount {
+  width: 100%;
+}
+.btn-typeNewAccount {
+  background-color: #ff5652;
+  border: #ff5652 solid 1px;
+  border-radius: 40px;
+  padding: 5px 7px;
+  color: white;
+  font-weight: 600;
+}
+.selec-type {
+  width: 10vw !important;
+}
+/* VENTANA MODAL */
+.modalWindow {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.modalWindow-falso {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
+
+.contenedor-mensaje-modal {
+  width: 30rem;
+  min-height: 20rem;
+  background-color: white;
+  border-radius: 40px;
+}
+.cancel-transaction {
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/transfers/icons8-circled-x-50.png);
+  background-size: cover;
+  cursor: pointer;
+  margin-left: 40px;
+}
+.div-confirm {
+  width: 100%;
+}
+.div-confirm h3 {
+  background-color: gray;
+  border-radius: 40px 40px 0 0;
+}
+.btn-confirm {
+  background-color: rgb(35, 161, 103);
+  border-radius: 30px !important;
+  border: none;
+  color: white;
+  margin-right: 3px;
+  padding: 4px 7px;
+}
+.cancel-confirm {
+  border-radius: 30px !important;
+  background-color: rgb(209, 209, 209);
+  padding: 4px 7px;
+}
+/* div-success */
+.div-success,
+.div-error {
+  width: 100%;
+}
+.checked,
+.img-error {
+  width: 100px;
+  height: 100px;
+  background-image: url(../assets/transfers/icons8-checkmark.gif);
+  background-position: center;
+  background-size: cover;
+  border-radius: 40px;
+}
+.img-error {
+  margin-left: 5px;
+  width: 80px;
+  height: 80px;
+  background-image: url(../assets/transfers/icons8-broken-heart.gif);
+}
+.text-div-success,
+.text-div-error {
+  height: 40%;
+  width: 280px;
+}
+.cont-verde,
+.cont-rojo {
+  height: 100%;
+  width: 200px;
+  background-color: rgb(199, 230, 200);
+  text-decoration: underline;
+  border-radius: 0 40px 40px 0;
+}
+.cont-rojo {
+  background-color: rgb(252, 167, 152);
+}
+.mje-great {
+  font-size: 2rem;
+}
+.btn-see-cards {
+  cursor: pointer;
+  background-color: rgb(76, 175, 80) !important;
+}
+.btn-ok {
+  background-color: rgb(245, 168, 166);
+  border: none;
+  cursor: pointer;
+}
+.mje-error {
+  font-weight: 700;
+}
+.mje-pay {
+  width: 24rem !important;
+}
+.menu-movil-logout{
+  background-image: url(../assets/icons8-logout-50.png);
 }

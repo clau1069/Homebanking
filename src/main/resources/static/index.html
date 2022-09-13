@@ -1,371 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="style-index.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- animaciones -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <title>Home || Mindhub Brothers</title>
-  </head>
+  <link rel="stylesheet" href="style-index.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
 
-  <body>
-    <div id="app">
-      <header class="d-flex justify-content-between">
-        <div
-          class="header-izquierdo d-flex flex-column justify-content-between align-items-center"
-        >
-          <div
-            class="d-flex div-logo-nav d-flex justify-content-between align-items-center"
-          >
-            <div
-              class="d-flex justify-content-center align-items-center div-logo px-2"
-            >
-              <img src="../assets/logo-pig.png" class="img-logo" alt="" />
-              <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
-            </div>
-            <div class="div-nav d-flex flex-column justify-content-center">
-              <nav class="d-flex justify-content-evenly align-items-center">
-                <a href="#" class="ancor-1">Home</a>
-                <a href="#info-bank" class="ancor-1">About Us</a>
-                <a href="" class="ancor-1">Contact</a>
-                <a
-                  @click="clickMyAccount"
-                  :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
-                  class="ancor-1"
-                  >My Account</a
-                >
-              </nav>
-              <div class="marcador-pag-actual"></div>
-            </div>
+  <!-- animaciones -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Home || Mindhub Brothers</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- NAV movil--------------- -->
+    <div class="justify-content-center div-sup-movil align-items-center ">
+      <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+      <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+    </div>
+    <nav class="menu-movil justify-content-evenly align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#info-bank" class="menu-movil-aboutUs"></a>
+        <p class="p-nav-movil">About Us</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#contact" class="menu-movil-contact"></a>
+        <p class="p-nav-movil">Contact</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+          class="menu-movil-accounts"></a>
+        <p class="p-nav-movil">My accounts</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a v-if="usuario=='visitante'" href="#log-in" class="menu-movil-login"></a>
+        <p v-if="usuario=='visitante'" class="p-nav-movil">Log in</p>
+        <a v-if="usuario=='autenticado'" @click="cerrarSesion" class=" menu-movil-logout"></a>
+        <p v-if="usuario=='autenticado'" class="p-nav-movil">Log out</p>
+      </div>
+    </nav>
+    <header class="d-flex justify-content-between">
+      <div class="header-izquierdo flex-column justify-content-between align-items-center nav-desktop">
+        <div class="d-flex div-logo-nav d-flex justify-content-between align-items-center">
+          <div class="nav-desktop justify-content-center align-items-center div-logo px-2">
+            <img src="../assets/logo-pig.png" class="img-logo " alt="" />
+            <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
           </div>
-
-          <div class="img-header"></div>
-        </div>
-        <div class="header-derecho d-flex flex-column align-items-center">
-          <nav class="d-flex justify-content-end align-items-center">
-            <a v-show="usuario=='visitante'" href="#log-in" class="log-in"
-              >Log in</a
-            >
-            <a v-show="usuario=='visitante'" href="#sign-in" class="sign-up"
-              >Sign In</a
-            >
-            <a
-              v-show="usuario=='autenticado'"
-              href="index.html"
-              class="log-out"
-              @click="cerrarSesion"
-              >Log out</a
-            >
-          </nav>
-          <div
-            class="text-header-derecho d-flex flex-column justify-content-center align-items-center"
-          >
-            <h1 class="d-flex">MINDHUB BROTHERS</h1>
-            <p>We save you in every moment!</p>
-            <div class="btn-header-derecho d-flex justify-content-evenly mt-4">
-              <a href="#info-bank" class="ancor-2">Read More</a>
-              <a
-                :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
-                class="ancor-1"
-                >My Account</a
-              >
-            </div>
+          <div class="div-nav d-flex flex-column justify-content-center">
+            <nav class="justify-content-evenly align-items-center d-flex">
+              <a href="#" class="ancor-1 current-a">Home</a>
+              <a href="#info-bank" class="ancor-1">About Us</a>
+              <a href="#contact" class="ancor-1">Contact</a>
+              <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+                class="ancor-1">My Account</a>
+            </nav>
+            <div class="marcador-pag-actual"></div>
           </div>
         </div>
-      </header>
-      <div class="espacio"></div>
-      <!-- SECTION INFO-BANK -->
-      <section
-        id="info-bank"
-        class="section-info-bank d-flex justify-content-center align-items-center"
-      >
-        <div
-          class="info-bank-left d-flex flex-column justify-content-center align-items-center"
-        >
-          <div class="div-content-info-bank-left">
-            <h2 class="mb-4">WHY SHOULD I USE THIS HOMEBANKING?</h2>
-            <p class="mb-4">
-              Mindhub Brothers Homebankign is a virtual platform that allows you
-              to make different operations in an agile, safe and simple way,
-              such as requesting loans 24 hours a day or making transfers safely
-              and immediately.
-            </p>
-            <a href="#info-operations" class="ancor-2">Operations</a>
+
+        <div class="img-header"></div>
+      </div>
+      <div class="header-derecho d-flex flex-column align-items-center">
+        <nav class="justify-content-end align-items-center nav-desktop">
+          <a v-show="usuario=='visitante'" href="#log-in" class="log-in">Log in</a>
+          <a v-show="usuario=='visitante'" href="#sign-in" class="sign-up">Sign In</a>
+          <a v-show="usuario=='autenticado'" href="index.html" class="log-out" @click="cerrarSesion">Log out</a>
+        </nav>
+        <div class="text-header-derecho d-flex flex-column justify-content-center align-items-center">
+          <h1 class="d-flex">MINDHUB BROTHERS</h1>
+          <p>We save you in every moment!</p>
+          <div class="btn-header-derecho d-flex justify-content-evenly mt-4">
+            <a href="#info-bank" class="ancor-2">Read More</a>
+            <a :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'" class="ancor-1">My Account</a>
           </div>
+          <div class="img-header movil-si"></div>
         </div>
-        <div
-          class="info-bank-right d-flex flex-column align-items-center justify-content-center"
-        >
-          <div class="img-computer"></div>
+      </div>
+    </header>
+
+    <!-- SECTION INFO-BANK -->
+    <section id="info-bank" class="section-info-bank d-flex justify-content-center align-items-center">
+
+      <div class="div-content-info-bank-left">
+        <h2 class="mb-4">WHY SHOULD I USE THIS HOMEBANKING?</h2>
+        <div class="div">
+          <p class="mb-4">
+            Mindhub Brothers Homebankign is a virtual platform that allows you
+            to make different operations in an agile, safe and simple way,
+            such as requesting loans 24 hours a day or making transfers safely
+            and immediately.
+          </p>
+          <div class="img-info-bank movil-si"></div>
+        </div>
+        <a href="#info-operations" class="ancor-2 op-button">Operations</a>
+      </div>
+      <div class="info-bank-right d-flex flex-column align-items-center justify-content-center">
+        <div class="img-info-bank nav-desktop"></div>
+
+      </div>
+    </section>
+    <!-- SECTION IFRAME -->
+    <section class="d-flex justify-content-center align-items-center section-iframe">
+      <iframe class="iframe" width="1200" height="500" src="https://www.youtube.com/embed/SWUC9VALrnA"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </section>
+    <!-- SECTION OPERATIONS -->
+    <section class="operations d-flex flex-column justify-content-center align-items-center text-white">
+      <h2>Our Facilities</h2>
+      <div class="flex-wrap div-operation d-flex justify-content-evenly align-items-center">
+        <span class="d-flex flex-column justify-content-center align-items-center">
           <div>
-            <a class="ancor-1 me-4" href="#sign-in">Join me!</a>
-            <a class="ancor-1" href="#log-in">Log in</a>
+            <p>Accounts</p>
+            <img src="./assets/index/Piggy bank-amico.svg" alt="">
           </div>
-        </div>
-      </section>
-      <div class="espacio"></div>
-      <!-- SECTION INFO-OPERATIONS -->
-      <section id="info-operations">
-        <div class="info-operat-izq"></div>
-        <div
-          class="info-operat-der d-flex flex-column justify-content-center align-items-center"
-        >
-          <div class="div-content-info-bank-left">
-            <h2 class="mb-4">OPERATIONS</h2>
-            <p class="mb-4">
-              Mindhub Brothers Homebankign is a virtual platform that allows you
-              to make different operations in an agile, safe and simple way,
-              such as requesting loans 24 hours a day or making transfers safely
-              and immediately.
-            </p>
-            <a href="#info-operations" class="ancor-2">Operations</a>
+          <p class="text-center">You can see your account data, balance and more!</p>
+          <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+            class="btn-operations">Read More...</a>
+        </span>
+        <span class="d-flex flex-column justify-content-center align-items-center">
+          <div>
+            <p>Loans</p>
+            <img src="./assets/index/Coins-amico.svg" alt="">
           </div>
-        </div>
-      </section>
-      <div class="espacio"></div>
-      <!-- SECTION INICIAR SESIÓN -->
-      <div v-show="usuario=='visitante'">
-        <section
-          id="log-in"
-          class="section-logIn d-flex justify-content-center align-items-center"
-        >
-          <div class="img-planta-login"></div>
+          <p class="text-center">You can see the loans you have requested and apply to others, very easy!</p>
+          <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+            class="btn-operations">Read More...</a>
+        </span>
+        <span class="d-flex flex-column justify-content-center align-items-center">
+          <div>
+            <p>Cards</p>
+            <img src="./assets/index/Credit card-bro.svg" alt="">
+          </div>
+          <p class="text-center">Do you need to make payments? Use our cards!</p>
+          <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+            class="btn-operations">Read More...</a>
+        </span>
+        <span class="d-flex flex-column justify-content-center align-items-center">
+          <div>
+            <p>Transfers</p>
+            <img src="./assets/index/High five-pana.svg" alt="">
+          </div>
+          <p class="text-center">You don't need to leave home to spend money, right? Let's make it easy :)</p>
+          <a @click="clickMyAccount" :href="usuario=='autenticado'?'./Web/accounts.html':'#log-in'"
+            class="btn-operations">Read More...</a>
+        </span>
+      </div>
+    </section>
+    <!-- <div class="espacio"></div> -->
+    <!-- SECTION INICIAR SESIÓN -->
+    <div v-show="usuario=='visitante'">
+
+      <section id="log-in" class="section-logIn d-flex justify-content-center align-items-center">
+
+        <div class="img-planta-login"></div>
+        <div>
+          <h2 class="mb-4 text-white">Log in</h2>
           <form class="form-login">
+
             <p>{{mjeNoAutenticado}}</p>
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input
-                type="email"
-                id="form2Example1"
-                class="form-control"
-                v-model="emailInput"
-              />
-              <label class="form-label" for="form2Example1"
-                >Email address</label
-              >
+              <input type="email" id="form2Example1" class="form-control" v-model="emailInput" />
+              <label class="form-label" for="form2Example1">Email address</label>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input
-                type="password"
-                id="form2Example2"
-                class="form-control"
-                v-model="passwordInput"
-              />
+              <input type="password" id="form2Example2" class="form-control" v-model="passwordInput" />
               <label class="form-label" for="form2Example2">Password</label>
             </div>
 
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="form2Example31"
-                    checked
-                  />
-                  <label class="form-check-label" for="form2Example31">
-                    Remember me
-                  </label>
-                </div>
-              </div>
 
-              <div class="col">
-                <!-- Simple link -->
-                <a class="ancor-1" href="#!">Forgot password?</a>
-              </div>
-            </div>
 
             <!-- Submit button -->
             <div class="d-flex">
-              <button
-                @click="signIn"
-                type="button"
-                class="btn btn-primary btn-block mb-4"
-              >
+              <button @click="signIn" type="button" class="btn btn-primary btn-block mb-4">
                 Log in
               </button>
               <p class="text-danger" v-if="mensaje"></p>
             </div>
             <!-- Register buttons -->
             <div class="text-center">
-              <p>Not a member? <a class="ancor-1" href="#!">Register</a></p>
+              <p>Not a member? <a class="ancor-1" href="#sign-in">Register</a></p>
             </div>
-            <p>{{error}}</p>
+            <p class="text-danger" v-if="error!=''">{{error+'*'}}</p>
           </form>
-          <div class="img-tipo-login"></div>
-        </section>
-      </div>
-      <!-- SECTION REGISTRARSE -->
-      <section
-        v-show="usuario=='visitante'"
-        id="sign-in"
-        class="vh-100"
-        style="background-color: #eee"
-      >
-        <div class="container h-100">
-          <div
-            class="row d-flex justify-content-center align-items-center h-100"
-          >
-            <div class="col-lg-12 col-xl-11">
-              <div class="card text-black" style="border-radius: 25px">
-                <div class="card-body p-md-5">
-                  <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Sign up
-                      </p>
+        </div>
+        <div class="img-tipo-login"></div>
+      </section>
+    </div>
+    <!-- SECTION REGISTRARSE -->
+    <section v-show="usuario=='visitante'" id="sign-in" class="section-register vh-100" style="background-color: #eee">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                      Sign up
+                    </p>
 
-                      <form class="mx-1 mx-md-4">
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input
-                              type="text"
-                              id="form3Example1c"
-                              class="form-control"
-                              v-model="registerFirstName"
-                            />
-                            <label class="form-label" for="form3Example1c"
-                              >Your Name</label
-                            >
-                          </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input
-                              type="text"
-                              id="form3Example2c"
-                              class="form-control"
-                              v-model="registerLastName"
-                            />
-                            <label class="form-label" for="form3Example2c"
-                              >Your Last Name</label
-                            >
-                          </div>
-                        </div>
+                    <form class="mx-1 mx-md-4">
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input
-                              type="email"
-                              id="form3Example3c"
-                              class="form-control"
-                              v-model="registerEmail"
-                            />
-                            <label class="form-label" for="form3Example3c"
-                              >Your Email</label
-                            >
-                          </div>
+                          <label class="form-label" for="form3Example1c">Your Name</label>
+                          <input type="text" id="form3Example1c" class="form-control" v-model="registerFirstName" />
                         </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="form3Example2c">Your Last Name</label>
+                          <input type="text" id="form3Example2c" class="form-control" v-model="registerLastName" />
 
-                        <div class="d-flex flex-row align-items-center mb-4">
-                          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input
-                              type="password"
-                              id="form3Example4c"
-                              class="form-control"
-                              v-model="registerPassword"
-                            />
-                            <label class="form-label" for="form3Example4c"
-                              >Password</label
-                            >
-                          </div>
                         </div>
+                      </div>
 
-                        <div
-                          class="form-check d-flex justify-content-center mb-5"
-                        >
-                          <input
-                            class="form-check-input me-2"
-                            type="checkbox"
-                            value=""
-                            id="form2Example3c"
-                          />
-                          <label
-                            class="form-check-label"
-                            for="form2Example3"
-                            aria-required="true"
-                          >
-                            I agree all statements in
-                            <a href="#!">Terms of service</a>
-                          </label>
-                        </div>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="form3Example3c">Your Email</label>
+                          <input type="email" id="form3Example3c" class="form-control" v-model="registerEmail" />
 
-                        <div
-                          class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
-                        >
-                          <p class="text-danger">{{mensajeRegister}}</p>
-                          <button
-                            type="button"
-                            class="btn btn-primary btn-lg"
-                            @click="register"
-                          >
-                            Register
-                          </button>
                         </div>
-                      </form>
-                    </div>
-                    <div
-                      class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
-                    >
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        class="img-fluid"
-                        alt="Sample image"
-                      />
-                    </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="form3Example4c">Password</label>
+                          <input type="password" id="form3Example4c" class="form-control" v-model="registerPassword" />
+
+                        </div>
+                      </div>
+
+                      <div class="form-check d-flex justify-content-center mb-5">
+                        <input class="form-check-input me-2" type="checkbox" value="checked" v-model="termsChecked"
+                          id="form2Example3c" />
+                        <label class="form-check-label" for="form2Example3" aria-required="true">
+                          I agree all statements in
+                          <a href="#!">Terms of service</a>
+                        </label>
+                      </div>
+
+                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+
+                        <button type="button" class="btn btn-primary btn-lg" @click="register">
+                          Register
+                        </button>
+                      </div>
+                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <p class="text-danger">{{mensajeRegister}}</p>
+                      </div>
+                    </form>
                   </div>
+                  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 img-register">
+                  </div>
+                  <!-- <img 
+                    src="https://storyset.com/illustration/digital-nomad/bro#FF725EFF&hide=&hide=complete" alt=""
+                    width="200" height="200"> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </div>
+  <!-- CONTACT -->
+  <div id="contact" class="d-flex fle-xolumn justify-content-center align-items-center">
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <img class="img-icon-contact" src="./assets/index/icons8-facebook-50.png" alt="">
+        <p class=" m-0 ms-2 text-white">Facebook: <a href="https://web.facebook.com/">MindHubBrothersFace</a></p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <img class="img-icon-contact" src="./assets/index/icons8-instagram-50.png" alt="">
+        <p class="m-0 ms-2 text-white">Instagram: <a href="https://www.instagram.com/">MindBrothersHub_Ig</a></p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <img class="img-icon-contact" src="./assets/index/icons8-whatsapp-50.png" alt="">
+        <p class="m-0 ms-2 text-white">WhatsApp: <a href="">309-8776780</a></p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <img class="img-icon-contact" src="./assets/index/icons8-mail-50.png" alt="">
+        <p class="m-0 ms-2 text-white">Mail: <a href="mailto:mindhubro@mindhub.com"> mindhubro@mindhub.com</a></p>
+      </div>
+    </div>
+    <img src="./assets/index/icons8-pig-64.png" alt="" class="img-contact-pig">
+  </div>
+  <!-- FOOTER------ -->
+  <footer class="footer text-white justify-content-between align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
+      <img class="footer-icon" src="../assets/icons8-pig-60-gray.png" alt="" />
+      <p class="tfooter">MINDHUB BROTHERS</p>
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="index.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
-  </body>
+    <div>
+      <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+    </div>
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
 </html>
 
-<p>
-  Homebankign es una plataforma virtual que te permite realizar distintas
-  operaciones de forma agil. segura y sencilla como por ejemplo solicitar
-  prestamos de forma inmediata las 34 hs realizar transferencias de forma segura
-  e inmediata homebanking brinda: agilidad y comodidad, ingresando desde una
-  computadora o dispositivo movil. faiclidad de uso, nusra pagina te muestra
-  todo de forma clara y sencilla para acceder a las operaciones. seguridad: tus
-  datos son protegidos en todo momento
-</p>
+
 <!-- <iframe
   width="560"
   height="315"

@@ -1,8 +1,5 @@
 package com.MINDHUB.Homebanking.dtos;
-
-import com.MINDHUB.Homebanking.models.Client;
 import com.MINDHUB.Homebanking.models.ClientLoan;
-import com.MINDHUB.Homebanking.models.Loan;
 
 public class ClientLoanDTO {
     //++propiedades

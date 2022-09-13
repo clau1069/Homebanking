@@ -1,0 +1,35 @@
+body {
+  min-height: 100vh;
+}
+.cont-buttons {
+  width: 15vw;
+  min-height: 80vh;
+  padding-top: 5vh;
+}
+.a {
+  text-decoration: none;
+  color: white;
+  background-color: #ff6966;
+  padding: 2px 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 10px 15px;
+  width: 9vw;
+  margin-bottom: 5vh;
+}
+.button {
+  cursor: pointer;
+}
+.cont-info {
+  height: 80vh;
+  background-color: rgb(194, 193, 193);
+  border-radius: 40px;
+  width: 60vw;
+  min-height: 80vh;
+}
+.form-function {
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+}

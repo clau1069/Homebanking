@@ -21,7 +21,7 @@ const { createApp } = Vue
           .then((response)=> {
               this.client=response.data
               this.accounts=response.data.accounts
-              console.log(this.client)
+              
               this.encontrarCuentaSeleccionada()
           })
         },
@@ -29,7 +29,19 @@ const { createApp } = Vue
           params = new URLSearchParams(window.location.search)
           const idURL = params.get('id')
           this.cuentaSeleccionada= this.accounts.find(cuenta=>cuenta.id==idURL)
+          this.transactions=this.cuentaSeleccionada.transactions
+          this.transactions.sort((a, b) => (a.id < b.id) ? 1 : -1)
+          
+          console.log(this.transactions)
         },
+        cerrarSesion(e){
+          e.preventDefault()
+          axios.post('/api/logout')
+          .then(response => {
+            window.location.href="../index.html"
+          })
+          
+      },
         
     },
   }).mount('#app')

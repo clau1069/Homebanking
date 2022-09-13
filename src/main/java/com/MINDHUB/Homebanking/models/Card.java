@@ -1,10 +1,7 @@
 package com.MINDHUB.Homebanking.models;
-
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Card {
@@ -12,7 +9,7 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long id;
+    private long id;
     private String cardholder;
     private String number;
     private CardType type;
@@ -20,7 +17,9 @@ public class Card {
     private Integer cvv;
     private LocalDate trhuDate;
     private LocalDate fromDate;
-    @ManyToOne
+    private Boolean status = true;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="client_id")
     private Client client;
 
 
@@ -29,20 +28,22 @@ public class Card {
     public Card() {
     }
 
-    public Card(String cardholder, String number, CardType type, CardColor color, Integer cvv, LocalDate trhuDate, LocalDate fromDate, Client client) {
+    public Card(String cardholder, String number, CardType type, CardColor color, Integer cvv, LocalDate trhuDate, LocalDate fromDate, Boolean status, Client client) {
         this.cardholder = cardholder;
         this.number = number;
         this.type = type;
         this.color = color;
         this.cvv = cvv;
-        this.fromDate = fromDate;
         this.trhuDate = trhuDate;
+        this.fromDate = fromDate;
+        this.status = status;
         this.client = client;
     }
-    //++getter & setters
+
+//++getter & setters
 
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
     public String getCardholder() {
@@ -86,6 +87,12 @@ public class Card {
     }
     public void setFromDate(LocalDate fromDate) {
         this.fromDate = fromDate;
+    }
+    public Boolean getStatus() {
+        return status;
+    }
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
     public Client getClient() {
         return client;

@@ -1,0 +1,359 @@
+/* NAV */
+.img-logo {
+  width: 40px;
+  height: 40px;
+}
+.banco-header {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.div-nav {
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+}
+nav {
+  width: 60%;
+}
+.a {
+  text-decoration: none;
+  color: white;
+  background-color: #ff8b7b;
+  padding: 2px 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 6px 15px;
+}
+.a2 {
+  background-color: #ff5652 !important;
+}
+.a2:hover {
+  font-size: 1.2rem;
+  background-color: #ff413d !important;
+}
+.a:hover {
+  color: white;
+  background-color: #ff5652;
+}
+.log-out {
+  background-color: white !important;
+  color: #009dfb !important;
+  border: #009dfb 1px solid !important;
+}
+/* NAV MOVIL */
+
+.menu-movil {
+  width: 100vw;
+  height: 4.4rem;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+  padding-top: 0.2rem;
+}
+.menu-movil a {
+  width: 40px;
+  height: 40px;
+  background-color: #ff5652;
+  border-radius: 50px;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+.menu-movil-home {
+  background-image: url(../assets/home-white.png);
+}
+.menu-movil-cards {
+  background-image: url(../assets/nav-card-white.png);
+}
+.menu-movil-profile {
+  background-image: url(../assets/user-white.png);
+}
+.menu-movil-transfer {
+  background-image: url(../assets/accounts/icon-transfer.png);
+}
+.p-nav-movil {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: 0.2rem;
+  line-height: 1rem;
+}
+/* FLEX */
+.menu-movil {
+  display: none !important;
+}
+.nav-desktop {
+  display: flex;
+}
+.div-sup-movil {
+  display: none;
+}
+.img-header-movil {
+  display: none;
+}
+.form-movil {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .menu-movil {
+    display: flex !important;
+  }
+  .div-sup-movil {
+    display: flex;
+    background-color: #3387cc;
+  }
+  .img-logo {
+    width: 25px;
+    height: 25px;
+  }
+  footer {
+    display: none !important;
+  }
+  header {
+    flex-direction: column;
+  }
+  .img-header {
+    display: none;
+  }
+  .img-header-movil {
+    display: flex;
+  }
+  .div-titulo {
+    margin: 0 !important;
+    margin-top: 4rem !important;
+  }
+  main {
+    flex-direction: column;
+    padding-top: 10rem;
+    height: 250vh !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .options {
+    width: 100% !important;
+  }
+  .section-transaction {
+    width: 80vw !important;
+    height: 100vh !important;
+    background: none !important;
+  }
+  .form-desktop {
+    display: none;
+  }
+  .form-movil {
+    display: flex;
+  }
+}
+
+/*header*/
+.h1-details {
+  margin-top: 4rem;
+}
+header {
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+  height: 100vh !important;
+}
+.img-header {
+  width: 30rem;
+  margin-right: 20rem;
+}
+.img-fondo-header {
+  background-image: url(../assets/fondos/fondo-transactions.png);
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+}
+.div-titulo {
+  margin-left: 10rem;
+}
+.div-titulo h1 {
+  font-size: 3rem;
+  color: white;
+}
+/*MAIN-------*/
+main {
+  height: 100vh;
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+}
+
+/* OPCIONES DE TRANSFERENCIA */
+.options {
+  height: 100vh;
+  width: 50vw;
+}
+.card-option {
+  text-decoration: none;
+  width: 23rem;
+  height: 13rem;
+  background-color: rgb(255, 139, 123);
+  border-radius: 20px;
+  border: #ff413d 2.7px solid;
+  cursor: pointer;
+}
+.card-option:hover {
+  background-color: #ff5652;
+}
+.card-option p {
+  font-weight: 700 !important;
+  width: 150px;
+}
+.img-button-transfer {
+  height: 150px;
+  width: 150px;
+}
+.section-transaction {
+  width: 50vw;
+  height: 100%;
+  background-image: url(../assets/fondos/fondo-transactions.png);
+  background-repeat: no-repeat;
+  background-position: 0% 100%;
+}
+.form-transaction {
+  height: 80%;
+  width: 500px;
+  background-color: rgb(33, 37, 41);
+  color: white;
+  padding: 3rem;
+  border-radius: 20px;
+}
+.arrow-white {
+  background-image: url(../assets/transfers/icons8-arrow-100.png);
+  height: 100px;
+  width: 100px;
+  transform: rotate(180deg);
+}
+.input-form {
+  width: 290px;
+  height: 40px;
+}
+.input-description {
+  height: 100px;
+}
+.fondo-section {
+  background-image: url(../assets/fondos/fondo-transfers-2.png);
+  height: 100%;
+  width: 100%;
+}
+.btn-send-money {
+  background-color: rgb(35, 161, 103);
+  color: white;
+  border: white solid 3px;
+}
+
+/* VENTANA MODAL */
+.modalWindow {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.modalWindow-falso {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
+
+.contenedor-mensaje-modal {
+  width: 30rem;
+  min-height: 20rem;
+  background-color: white;
+  border-radius: 40px;
+}
+.cancel-transaction {
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/transfers/icons8-circled-x-50.png);
+  background-size: cover;
+  cursor: pointer;
+  margin-left: 40px;
+}
+.div-confirm {
+  width: 100%;
+}
+.div-confirm h3 {
+  background-color: gray;
+  border-radius: 40px 40px 0 0;
+}
+/* div-success */
+.div-success,
+.div-error {
+  width: 100%;
+}
+.checked,
+.img-error {
+  width: 100px;
+  height: 100px;
+  background-image: url(../assets/transfers/icons8-checkmark.gif);
+  background-position: center;
+  background-size: cover;
+  border-radius: 40px;
+}
+.img-error {
+  margin-left: 5px;
+  width: 80px;
+  height: 80px;
+  background-image: url(../assets/transfers/icons8-broken-heart.gif);
+}
+.text-div-success,
+.text-div-error {
+  height: 40%;
+  width: 280px;
+}
+.cont-verde,
+.cont-rojo {
+  height: 100%;
+  width: 200px;
+  background-color: rgb(199, 230, 200);
+  text-decoration: underline;
+  border-radius: 0 40px 40px 0;
+}
+.cont-rojo {
+  background-color: rgb(252, 167, 152);
+}
+.mje-great {
+  font-size: 2rem;
+}
+.btn-see-cards {
+  background-color: rgb(76, 175, 80) !important;
+}
+.btn-ok {
+  background-color: rgb(245, 168, 166);
+  border: none;
+}
+.mje-error {
+  font-weight: 700;
+}
+/*
+/* FOOTER */
+.footer {
+  display: flex;
+  height: 3rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: rgb(26, 26, 26);
+}
+.footer-icon {
+  height: 2.6rem;
+}
+.tfooter {
+  font-size: 1.8rem;
+  padding-left: 1rem;
+  color: white !important;
+  margin: 0;
+}
+.creat-footer {
+  color: white !important;
+  margin: 0;
+}
+.menu-movil-logout{
+  background-image: url(../assets/icons8-logout-50.png);
+}

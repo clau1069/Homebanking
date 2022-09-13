@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style-createCards.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../assets/logo-pig.png" type="image/x-icon" />
+  <!-- animaciones divs -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Create Cards || Mindhub Brothers</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- NAV desktop--------------- -->
+    <div class="nav-desktop justify-content-between align-items-center div-nav py-1">
+      <div class="ms-4 d-flex justify-content-center align-items-center">
+        <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+        <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
+      </div>
+      <nav class="d-flex justify-content-evenly align-items-center">
+        <a class="a" href="../index.html">Home</a>
+        <a class="a" href="../cards.html">Cards</a>
+        <a class="a" href="./transfers.html">Transfers</a>
+        <a class="a log-out" href="#" @click="cerrarSesion">Log out</a>
+      </nav>
+    </div>
+    <!-- NAV movil--------------- -->
+    <div class="justify-content-center div-sup-movil align-items-center">
+      <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+      <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+    </div>
+    <nav class="menu-movil justify-content-evenly align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="../index.html" class="menu-movil-home"></a>
+        <p class="p-nav-movil">Home</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="./cards.html" class="menu-movil-cards"></a>
+        <p class="p-nav-movil">Cards</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="./transfers.html" class="menu-movil-transfer"></a>
+        <p class="p-nav-movil">transfer</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class="menu-movil-profile"></a>
+        <p class="p-nav-movil">Profile</p>
+      </div>
+    </nav>
+
+
+    <!-- HEADER------- -->
+    <div class="d-flex">
+      <div class="cont-header-main">
+        <header class="d-flex justify-content-between align-items-center">
+          <h1 class="text-white text-center">Create Cards</h1>
+          <a class="a a2 btn-create-card desktop-no" href="#main" class="btn-create-new-card">Create new Card</a>
+          <img class="img-header desktop-no" src="../assets/create-cards/Gift card-bro.svg" alt="">
+        </header>
+        <!-- MAIN---- -->
+        <main id="main" class="d-flex justify-content-center align-items-center">
+
+          <form class="d-flex flex-column justify-content-center align-items-center p-4">
+            <h3>Create new Card</h3>
+            <div class="cont-form d-flex justify-content-around align-items-center my-4">
+              <fieldset>
+                <p>Type:</p>
+                <label>
+                  <input type="radio" name="type" value="DEBIT" v-model="type"> DEBIT</br>
+                  <input type="radio" name="type" value="CREDIT" v-model="type"> CREDIT</br>
+                </label>
+              </fieldset>
+              <fieldset class="mt-4">
+                <p>Color:</p>
+                <label>
+                  <input type="radio" value="GOLD" v-model="color">GOLD </br>
+                  <input type="radio" value="SILVER" v-model="color">SILVER </br>
+                  <input type="radio" value="TITANIUM" v-model="color">TITANIUM </br>
+                </label>
+              </fieldset>
+            </div>
+            <button @click="createCard">Create</button>
+
+
+          </form>
+
+        </main>
+      </div>
+      <img class="img-header movil-no " src="../assets/create-cards/Gift card-bro.svg" alt="">
+
+    </div>
+
+  </div>
+  <!-- FOOTER------ -->
+  <footer class="footer text-white justify-content-between align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
+      <img class="footer-icon" src="../assets/icons8-pig-60-gray.png" alt="" />
+      <p class="tfooter">MINDHUB BROTHERS</p>
+    </div>
+
+    <div>
+      <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="create-card.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ import com.MINDHUB.Homebanking.models.CardType;
 import java.time.LocalDate;
 
 public class CardDTO {
-    private Long id;
+    private long id;
     private String cardholder;
     private String number;
     private CardType type;
@@ -15,6 +15,7 @@ public class CardDTO {
     private Integer cvv;
     private LocalDate trhuDate;
     private LocalDate fromDate;
+    private Boolean status;
 
     public CardDTO() {
     }
@@ -27,9 +28,10 @@ public class CardDTO {
         this.cvv= card.getCvv();
         this.trhuDate=card.getTrhuDate();
         this.fromDate=card.getFromDate();
+        this.status= card.getStatus();
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
     public String getCardholder() {
@@ -52,5 +54,8 @@ public class CardDTO {
     }
     public LocalDate getFromDate() {
         return fromDate;
+    }
+    public Boolean getStatus() {
+        return status;
     }
 }

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style-loan-app.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../assets/logo-pig.png" type="image/x-icon" />
+  <!-- animaciones divs -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Loan Application || Mindhub Brothers</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- NAV desktop--------------- -->
+    <div class="nav-desktop justify-content-between align-items-center div-nav py-1">
+      <div class="ms-4 d-flex justify-content-center align-items-center">
+        <img src="../assets/logo-pig.png" class="img-logo" alt="mindhub brothers page logo" />
+        <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
+      </div>
+      <nav class="d-flex justify-content-evenly align-items-center">
+        <a class="a" href="../index.html">Home</a>
+        <a class="a" href="./cards.html">Cards</a>
+        <a class="a" href="./transfers.html">Transfers</a>
+        <a class="a log-out" href="#" @click="cerrarSesion">Log out</a>
+      </nav>
+    </div>
+    <!-- NAV movil--------------- -->
+    <div class="justify-content-center div-sup-movil align-items-center">
+      <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+      <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+    </div>
+    <nav class="menu-movil justify-content-evenly align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="../index.html" class="menu-movil-home"></a>
+        <p class="p-nav-movil">Home</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="./cards.html" class="menu-movil-cards"></a>
+        <p class="p-nav-movil">Cards</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class="menu-movil-transfer"></a>
+        <p class="p-nav-movil">transfer</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class=" menu-movil-logout" @click="cerrarSesion"></a>
+        <p class="p-nav-movil">Log out</p>
+      </div>
+    </nav>
+    <!-- HEADER-----------  -->
+    <header class="d-flex justify-content-between align-items-center">
+      <div data-aos="fade-right" class="cont-titulo">
+        <div class="div-titulo d-flex flex-column align-items-center">
+          <h1 class="">Loan Application</h1>
+          <a class="a a2 btn-apply" href="#type">Let's start!</a>
+        </div>
+      </div>
+      <img class="img-header-movil" src="../assets/loan-application/To the stars-pana.svg"
+        alt="transaction image to another account" />
+      <div data-aos="fade-up">
+        <img class="img-header" src="../assets/loan-application/To the stars-pana.svg"
+          alt="transaction image to another account" />
+      </div>
+    </header>
+    <!-- MAIN---------------  -->
+    <main class="d-flex justify-content-center align-items-center">
+      <form>
+        <!-- SELECCIONA EL TIPO DE PRESTAMO -->
+        <div v-if="showType=='si'" id="type" class="d-flex flex-column align-items-center">
+          <h2 class="text-center">Select the type of Loan that you want</h2>
+          <div class="d-flex flex-column" v-for="loan in loans">
+            <label>
+              <input type="radio" :name="loan.name" :value="loan.name" class="radio" v-model="loanName"
+                @change="asignToLoanApplication()" />
+              <div class="loan-option d-flex justify-content-evenly align-items-center">
+                <p class="text-white">{{loan.name}}</p>
+                <div class="img-button-type"
+                  :class="loan.name=='Mortage' ? 'img-mortage' : loan.name == 'Personal' ? 'img-personal' : loan.name == 'Automotive' ? 'img-automotive' : 'img-coins'">
+                </div>
+              </div>
+            </label>
+
+          </div>
+
+        </div>
+
+        <!-- SELECCIONA EL MONTO A PAGAR -->
+        <div v-if="showAmount=='si'" id="amount" class="d-flex flex-column justify-content-center align-items-center">
+          <h2>Indicate the amount to request</h2>
+          <label>
+            <div class="d-flex">
+              <p class="p-amount">$:</p>
+              <input type="number" class="input-amount text-center" v-model="loanApplication.amount"
+                @change="asignToLoanApplication()" />
+            </div>
+          </label>
+
+        </div>
+        <!-- SELECCIONA LAS CUOTAS -->
+
+        <div id="payments" v-show="showPayments=='si'" class="select-payments">
+          <h2>Select the total of payments</h2>
+
+          <div>
+            <label v-for="payment in loanPayments">
+              <input type="radio" :name="payment" :value="payment" class="radio" v-model="loanApplication.payments"
+                @change="asignToLoanApplication()" />
+              <div class="loan-option option-payments d-flex justify-content-center text-center align-items-center">
+                <p class="text-white">{{payment}}</p>
+              </div>
+            </label>
+          </div>
+
+        </div>
+        <!-- SELECCIONA LA CUENTA DE DESTINO -->
+        <div v-if="showAccounts=='si'" id="destinyAccount"
+          class="d-flex flex-column justify-content-center align-items-center">
+          <h2>Select the Destiny Account</h2>
+
+          <div class="d-flex div-destiny-account justify-content-evenly">
+            <label v-for="account in accounts">
+              <input type="radio" :name="account.number" :value="account.number" class="radio"
+                v-model="loanApplication.numberAccount" @change="asignToLoanApplication()" />
+              <div class="loan-option destiny-option d-flex justify-content-center text-center align-items-center">
+                <p class="text-white">{{account.number}}</p>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      </form>
+      <!-- DIV CON INFORMACIÓN -->
+      <div class="cont-type" id="info">
+        <div class="div-type loan-option d-flex flex-column justify-content-between align-items-center">
+          <!-- info-loan -->
+          <div class="d-flex">
+            <div v-if="loanApplication.idLoan!=''">
+              <div class="d-flex align-items-center ms-4 mt-4">
+                <h2 class="d-inline">{{loanSelected.name}}</h2>
+                <img src="../assets/loan-application/icons8-pencil-24.png" alt="" class="ms-2 pencil-edit"
+                  @click="showType='si', showPayments='no', showAmount='no', showAccounts='no'" />
+              </div>
+              <div class="ms-4">
+                <p class="d-inline">Max Amount: $</p>
+                <p class="d-inline">{{loanSelected.maxAmount}}</p>
+              </div>
+              <div class="ms-4">
+                <p class="d-inline">Available payments:</p>
+                <p class="ms-2 d-inline">{{loanPayments.join()}}</p>
+              </div>
+              <hr />
+            </div>
+            <div class="img-button-type"
+              :class="loanSelected.name=='Mortage' ? 'img-mortage' : loanSelected.name == 'Personal' ? 'img-personal' : loanSelected.name == 'Automotive' ? 'img-automotive' : loanSelected!='vacio' ? 'img-coins' : 'btn'">
+            </div>
+          </div>
+          <!-- info-selected -->
+          <div>
+            <div class="infoselected d-flex flex-column justify-content-center">
+              <div v-if="loanApplication.amount!=''">
+                <p class="w-100">-Amount Selected:</p>
+                <div class="mt-2 d-flex cont-info-pencil align-items-center justify-content-between ps-4">
+                  <p class="d-inline">${{loanApplication.amount}}</p>
+
+                  <img v-if="loanApplication.numberAccount!=''" src="../assets/loan-application/icons8-pencil-24.png"
+                    alt="" class="pencil-edit"
+                    @click="showType='no', showPayments='no', showAmount='si', showAccounts='no'" />
+                </div>
+              </div>
+              <div v-if="loanApplication.payments!=''" class="mt-2">
+                <p class="w-100">-Payments Selected:</p>
+                <div class="mt-2 d-flex cont-info-pencil align-items-center justify-content-between ps-4">
+                  <p class="d-inline">{{loanApplication.payments}}</p>
+                  <img v-if="loanApplication.numberAccount!=''" src="../assets/loan-application/icons8-pencil-24.png"
+                    alt="" class="pencil-edit"
+                    @click="showType='no', showPayments='si', showAmount='no', showAccounts='no'" />
+                </div>
+              </div>
+              <div v-if="loanApplication.numberAccount!=''" class="mt-2">
+                <p class="w-100">-Destiny Account Selected:</p>
+                <div class="mt-2 d-flex cont-info-pencil align-items-center justify-content-between ps-4">
+                  <p class="d-inline">{{loanApplication.numberAccount}}</p>
+                  <img v-if="loanApplication.numberAccount!=''" src="../assets/loan-application/icons8-pencil-24.png"
+                    alt="" class="pencil-edit"
+                    @click="showType='no', showPayments='no', showAmount='no', showAccounts='si'" />
+                </div>
+              </div>
+              <p class="w-100 text-center" v-if="loanApplication.numberAccount!=''">
+                You will pay this amount per month: $
+                {{(loanApplication.amount*1.20/loanApplication.payments).toFixed(3)}}
+              </p>
+            </div>
+
+          </div>
+          <!-- btn-done -->
+          <div class=" d-flex">
+            <div v-if="loanApplication.numberAccount!=''"
+              class="btn btn-done mb-3 showPayments container-fluid d-flex justify-content-center"
+              @click="aparecerModal='si', aparecerDivConfirm='si', showAccounts='no'">
+              Apply!
+            </div>
+          </div>
+        </div>
+        <div class="btn btn-select" v-show="showType=='si' & loanApplication.idLoan!='' & loanApplication.amount==''"
+          @click="showAmount='si', showType='no'">
+          Select Amount</div>
+        <div class="btn btn-select mt-2"
+          v-show="showAmount=='si' & loanApplication.amount!='' & loanApplication.payments==''"
+          @click="showPayments='si', showAmount='no'">
+          Select Payments</div>
+        <div class="btn btn-select mt-2"
+          v-show="showPayments=='si' & loanApplication.payments!='' & loanApplication.numberAccount==''"
+          @click="showAccounts='si', showPayments='no'">
+          Select Destiny Acocunt</div>
+      </div>
+
+
+
+
+    </main>
+
+    <!-- MODAL---------------  -->
+    <div v-if="aparecerModal=='si'" class="modalWindow d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex flex-column">
+        <div @click="cancelTransaction" class="cancel-transaction align-self-end"></div>
+        <div class="contenedor-mensaje-modal d-flex">
+          <!-- DIV CONFIRMAR OPERACION -->
+          <div v-if="aparecerDivConfirm=='si'" class="div-confirm">
+            <h3 class="text-center py-2">Verification</h3>
+            <ul class="ms-4 py-4">
+              <li>Loan:</li>
+              <p>{{loanSelected.name}}</p>
+              <li>Amount Selected:</li>
+              <p>{{loanApplication.amount}}</p>
+              <li>Payments Selected:</li>
+              <p>{{loanApplication.payments}}</p>
+              <li>Destiny Account Selected:</li>
+              <p>{{loanApplication.numberAccount}}</p>
+              <p class="text-center a mje-pay">
+                You will pay this amount per month: $
+                {{(loanApplication.amount*1.20/loanApplication.payments).toFixed(3)}}
+              </p><!-- toFixed(x)redondea a x cantidad de decimales -->
+            </ul>
+            <div class="d-flex justify-content-center align-items-center">
+              <button @click="createLoan(), aparecerDivConfirm='no'" class="btn-send-money">
+                Confirm
+              </button>
+              <button @click="cancelTransaction">Cancel</button>
+            </div>
+          </div>
+          <!-- DIV OPERACION EXITOSA -->
+          <div v-if="aparecerDivSuccess=='si'" class="div-success d-flex justify-content-between">
+            <div>
+              <div class="checked"></div>
+              <p class="text-div-success d-flex justify-content-center align-items-center">
+                The apply was a success!
+              </p>
+              <div class="d-flex justify-content-center">
+                <a href="http://localhost:8080/Web/accounts.html#Loans" class="btn-see-cards a">See my loans</a>
+              </div>
+            </div>
+
+            <div class="cont-verde d-flex justify-content-center align-items-center mje-great">
+              Great!
+            </div>
+          </div>
+          <!-- DIV OCURRIÓ UN ERRROR -->
+          <div v-if="aparecerDivError=='si'" class="div-error d-flex justify-content-between">
+            <div>
+              <div class="img-error"></div>
+
+              <div class="text-div-error d-flex flex-column justify-content-center align-items-center">
+                <p class="mje-error">Something went wrong</p>
+                <p class="ms-4">{{errorPetición}}</p>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button @click="cancelTransaction" class="btn-ok a">
+                  Ok
+                </button>
+              </div>
+            </div>
+            <div class="cont-rojo d-flex justify-content-center align-items-center mje-great">
+              Mmm...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER---------  -->
+    <footer class="footer text-white justify-content-between align-items-center">
+      <div class="d-flex">
+        <img class="footer-icon" src="../assets/icons8-pig-60-gray.png" alt="piggy icon by mindhub brothers" />
+        <p class="tfooter">MINDHUB BROTHERS</p>
+      </div>
+
+      <div>
+        <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+      </div>
+    </footer>
+  </div>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="loan-application.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

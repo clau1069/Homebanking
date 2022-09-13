@@ -1,15 +1,64 @@
+/* NAV */
+.img-logo {
+  width: 40px;
+  height: 40px;
+}
+.banco-header {
+  font-weight: 600;
+  color: white;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.div-nav {
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+}
+nav {
+  width: 60%;
+}
+.a {
+  text-decoration: none;
+  color: white;
+  background-color: #ff8b7b;
+  padding: 2px 15px;
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: 6px 15px;
+}
+.a2 {
+  background-color: #ff5652 !important;
+}
+.a2:hover {
+  font-size: 1.2rem;
+  background-color: #ff413d !important;
+}
+.a:hover {
+  color: white;
+  background-color: #ff5652;
+}
+.log-out {
+  background-color: white !important;
+  color: #009dfb !important;
+  border: #009dfb 1px solid !important;
+}
 /* HEADER */
+header {
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+}
 .header-izquierdo {
   width: 50%;
-  background-color: white;
+  flex-direction: column;
 }
+
 .header-derecho {
-  width: 50%;
+  width: 30rem;
+  height: 100vh;
 }
 header h1 {
   margin: 0 !important;
   font-size: 7rem;
   line-height: 7rem;
+  color: white;
 }
 .doble-flecha-header {
   margin-top: 3rem;
@@ -18,22 +67,44 @@ header h1 {
 }
 /* MAIN */
 .section1 {
-  height: 47rem;
-  background-color: gray;
+  min-height: 47rem;
+  width: 100%;
+  padding-bottom: 5rem;
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
 }
+.btn-create-card {
+  margin-top: 4rem;
+}
+
 /* CARTA */
+.div-cont-all-cards {
+  width: 100%;
+}
+.contenedor-debit-credit {
+  width: 640px;
+  margin-top: 3rem;
+  padding-top: 40px;
+  background-color: rgb(197, 215, 255);
+  border-radius: 30px;
+}
 .cont-card-back {
   width: 30vw;
 }
 .credit-card-back {
   height: 20rem;
   width: 35rem;
-  background-image: url(../assets/card-back-2.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
 }
+.expired-card-back {
+  background-image: url(../assets/card/expired-card-back.png);
+}
+.back-card {
+  background-image: url(../assets/card-back-2.png);
+}
+
 .credit-card {
   height: 20rem;
   width: 35rem;
@@ -41,6 +112,9 @@ header h1 {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 20px;
+}
+.expired-card {
+  background-image: url(../assets/card/expired-card4.png);
 }
 .gold-back {
   background-image: url(../assets/card-gold.jpg);
@@ -62,6 +136,9 @@ header h1 {
   width: 100%;
   margin: 0;
   font-size: 2.4rem;
+}
+.card-banco-expired {
+  color: white !important;
 }
 .card-color-tipo {
   height: 3rem;
@@ -117,11 +194,23 @@ header h1 {
   height: 20rem;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   margin: 4rem;
   margin-bottom: 5rem !important;
 }
+.eliminar {
+  background-color: rgb(255, 255, 255);
 
+  border-radius: 30px;
+  border: none;
+  border: 1px gray solid;
+  padding: 5px 7px;
+  margin-bottom: 5px;
+}
+.eliminar:hover {
+  background-color: #ff8b7b;
+  border: #ff413d solid 1px;
+  color: #ff413d;
+}
 .cartaa .view {
   width: 100%;
   height: 100%;
@@ -133,20 +222,16 @@ header h1 {
   box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
   transform: perspective(2000px) rotateY(0deg);
 }
-
 .cartaa .front {
   background: rgb(214, 239, 246);
 }
-
 .cartaa:hover .front {
   transform: perspective(2000px) rotateY(180deg);
 }
-
 .cartaa .back {
   background-color: #e3f2fd;
   transform: perspective(2000px) rotateY(180deg);
 }
-
 .cartaa:hover .back {
   transform: perspective(2000px) rotateY(360deg);
 }
@@ -156,4 +241,240 @@ header h1 {
   margin-right: 4rem;
   font-weight: 500;
   margin-bottom: 2rem;
+}
+/* NAV MOVIL */
+
+.menu-movil {
+  width: 100vw;
+  height: 4.4rem;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+  padding-top: 0.2rem;
+}
+.menu-movil a {
+  width: 40px;
+  height: 40px;
+  background-color: #ff5652;
+  border-radius: 50px;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+.menu-movil-home {
+  background-image: url(../assets/home-white.png);
+}
+.menu-movil-cards {
+  background-image: url(../assets/nav-card-white.png);
+}
+.menu-movil-profile {
+  background-image: url(../assets/user-white.png);
+}
+.menu-movil-transfer {
+  background-image: url(../assets/accounts/icon-transfer.png);
+}
+.p-nav-movil {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: 0.2rem;
+  line-height: 1rem;
+}
+/* FLEX */
+.nav-desktop {
+  display: flex;
+}
+.menu-movil {
+  display: none !important;
+}
+.div-sup-movil {
+  display: none;
+}
+.titulo-desktop {
+  display: flex;
+}
+.titulo-movil {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .menu-movil {
+    display: flex !important;
+  }
+  .div-sup-movil {
+    display: flex;
+    background-color: #3387cc;
+  }
+  .img-logo {
+    width: 25px;
+    height: 25px;
+  }
+  footer {
+    display: none !important;
+  }
+  header {
+    height: 100vh !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-izquierdo {
+    margin: 0;
+    margin-top: 4rem;
+    width: 100% !important;
+    align-items: center;
+  }
+  header h1 {
+    font-size: 3rem !important;
+    line-height: 3rem !important;
+  }
+  .titulo-desktop {
+    display: none;
+  }
+  .titulo-movil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-create-card {
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+  .header-derecho {
+    justify-content: center;
+    align-items: center;
+  }
+  .div-cont-all-cards {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+/* VENTANA MODAL */
+.modalWindow {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.modalWindow-falso {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
+
+.contenedor-mensaje-modal {
+  width: 30rem;
+  min-height: 20rem;
+  background-color: white;
+  border-radius: 40px;
+}
+.cancel-transaction {
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/transfers/icons8-circled-x-50.png);
+  background-size: cover;
+  cursor: pointer;
+  margin-left: 40px;
+}
+.div-confirm {
+  width: 100%;
+}
+.div-confirm h3 {
+  background-color: gray;
+  border-radius: 40px 40px 0 0;
+}
+.btn-confirm {
+  background-color: rgb(35, 161, 103);
+  border-radius: 30px !important;
+  border: none;
+  color: white;
+  margin-right: 3px;
+  padding: 4px 7px;
+}
+.cancel-confirm {
+  border-radius: 30px !important;
+  background-color: rgb(209, 209, 209);
+  padding: 4px 7px;
+}
+/* div-success */
+.div-success,
+.div-error {
+  width: 100%;
+}
+.checked,
+.img-error {
+  width: 100px;
+  height: 100px;
+  background-image: url(../assets/transfers/icons8-checkmark.gif);
+  background-position: center;
+  background-size: cover;
+  border-radius: 40px;
+}
+.img-error {
+  margin-left: 5px;
+  width: 80px;
+  height: 80px;
+  background-image: url(../assets/transfers/icons8-broken-heart.gif);
+}
+.text-div-success,
+.text-div-error {
+  height: 40%;
+  width: 280px;
+}
+.cont-verde,
+.cont-rojo {
+  height: 100%;
+  width: 200px;
+  background-color: rgb(199, 230, 200);
+  text-decoration: underline;
+  border-radius: 0 40px 40px 0;
+}
+.cont-rojo {
+  background-color: rgb(252, 167, 152);
+}
+.mje-great {
+  font-size: 2rem;
+}
+.btn-see-cards {
+  background-color: rgb(76, 175, 80) !important;
+}
+.btn-ok {
+  background-color: rgb(245, 168, 166);
+  border: none;
+}
+.mje-error {
+  font-weight: 700;
+}
+.mje-pay {
+  width: 24rem !important;
+}
+/* FOOTER */
+.footer {
+  display: flex;
+  height: 3rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: rgb(26, 26, 26);
+}
+.footer-icon {
+  height: 2.6rem;
+}
+.tfooter {
+  font-size: 1.8rem;
+  padding-left: 1rem;
+  color: white !important;
+  margin: 0;
+}
+.creat-footer {
+  color: white !important;
+  margin: 0;
+}
+.menu-movil-logout{
+  background-image: url(../assets/icons8-logout-50.png);
 }

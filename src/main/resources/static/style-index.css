@@ -2,16 +2,29 @@ header {
   height: 100vh;
   background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
 }
+section{
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgba(245,61,61,1) 0%, rgba(249,110,110,1) 53%, rgba(245,162,131,1) 100%);
+}
+#log-in, #sign-in{
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%) !important;
+}
 .espacio {
   width: 100%;
   height: 10rem;
 }
 .ancor-2 {
-  background-color: #ff5652 !important;
+  background-color: #ff5652;
   padding: 8px 13px;
 }
 .ancor-2:hover {
-  background-color: #fc4441 !important;
+  background-color: #fc4441;
+}
+.current-a{
+  background: none !important;
+  color: white !important;
+  border: white 2px solid !important;
+  cursor:context-menu;
 }
 header nav {
   height: 60px;
@@ -63,12 +76,6 @@ a {
 }
 .header-izquierdo nav {
   width: 100%;
-}
-.marcador-pag-actual {
-  width: 10px;
-  height: 10px;
-  background-image: url(./assets/index/marcador.png);
-  transform: translateX(88px);
 }
 .img-header {
   background-image: url(./assets/index/Savings-amico.svg);
@@ -132,19 +139,35 @@ a {
   color: white !important;
 }
 /* SECTIONS */
+/* CARRUSEL */
+.carousel-item {
+  width: 100%;
+  height: 20rem !important;
+}
+.cuadro-carrusel {
+  width: 90rem;
+  background: rgb(99, 21, 21);
+  background: linear-gradient(84deg, #631515 0%, #f23e3e 53%, #d92020 100%);
+}
+.cuadro-carrusel p {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+.img-carrusel {
+  width: 30rem !important;
+}
 section {
   min-width: 100%;
   height: 100vh;
 }
 /* SECTION INFO BANK */
+#info-bank {
+  height: auto !important;
+}
 .section-info-bank {
   height: 100vh;
-  background: rgb(250, 250, 250);
-  background: linear-gradient(
-    180deg,
-    rgba(250, 250, 250, 1) 86%,
-    rgba(51, 135, 204, 1) 100%
-  );
+
 }
 .info-bank-left,
 .info-bank-right {
@@ -152,27 +175,27 @@ section {
   height: 100%;
 }
 .div-content-info-bank-left {
-  background: linear-gradient(
-    90deg,
-    rgba(51, 135, 204, 1) 0%,
-    rgba(64, 168, 255, 1) 74%
-  );
+  margin-left: 5vw;
   color: white;
   padding: 2rem;
   border-radius: 0 50px 50px 0;
+}
+.div-content-info-bank-left p{
+  font-size: 3vh;
+  line-height: 4vh;
 }
 .info-bank-left h2 {
   font-size: 3rem;
   line-height: 3rem;
 }
-.img-computer {
+.img-info-bank {
   border-radius: 40px;
-  height: 60%;
+  height: 100vh;
   width: 100%;
-  background-image: url(./assets/index/gif-computer.gif);
+  background-image: url(./assets/index/E-Wallet-rafiki.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 60%;
+  background-size: 100%;
 }
 /* SECTION INFO-OPERATIONS */
 #info-operations {
@@ -180,8 +203,7 @@ section {
 }
 /* SECTION FORM LOG IN */
 .section-logIn {
-  margin-top: 15rem;
-  background-color: #ff8b7b;
+  background-color: #009dfb;
 }
 .img-planta-login,
 .img-tipo-login {
@@ -207,4 +229,248 @@ section {
   color: gray;
   padding: 2rem;
   border-radius: 30px;
+}
+.section-iframe{
+  background-image: url(./assets/fondos/fondo-1.png);
+  background-position: center;
+  background-size: cover;
+  
+}
+.iframe{
+  border-radius: 100px;
+}
+.div-operation{
+  width: 80%;
+}
+.div-operation span{
+  width: 15vw;
+  
+}
+.div-operation span >p{
+  font-size: 2.3vh;
+  font-weight: 600;
+  margin-top: 3vh;
+}
+.div-operation div{
+  margin-top: 5vh;
+  cursor: pointer;
+  width: 15vw;
+  height: 40vh;
+  background-color: rgba(255, 255, 255, 0.493);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+
+}
+.div-operation div p{
+  font-weight: 700;
+  font-size: 2.5vh;
+}
+.div-operation div:hover{
+ background-color: white;
+}
+.div-operation div:hover p{
+  color: #fc4441;
+ }
+.btn-operations{
+  background: none;
+  border: white 3px solid;
+  border-radius: 10px;
+  color: white;
+  padding: 3px 6px;
+}
+ /* FOOTER */
+.footer {
+  display: flex;
+  height: 3rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: rgb(26, 26, 26);
+}
+.footer-icon {
+  height: 2.6rem;
+}
+.tfooter {
+  font-size: 1.8rem;
+  padding-left: 1rem;
+  color: white !important;
+  margin: 0;
+}
+.creat-footer {
+  color: white !important;
+  margin: 0;
+}
+.img-register{
+  background-image: url(./assets/index/Digital\ nomad-bro.svg);
+}
+/* NAV MOVIL */
+
+.menu-movil {
+  width: 100vw;
+  height: 4.4rem;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+  padding-top: 0.2rem;
+}
+.menu-movil a {
+  width: 40px;
+  height: 40px;
+  background-color: #ff5652;
+  border-radius: 50px;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+.menu-movil-home {
+  background-image: url(../assets/home-white.png);
+}
+.menu-movil-aboutUs {
+  background-image: url(./assets/icons8-about-50.png);
+}
+.menu-movil-contact {
+  background-image: url(./assets/icons8-contact-50.png);
+}
+.menu-movil-accounts {
+  background-image: url(./assets/icons8-merchant-account-50.png);
+}
+.p-nav-movil {
+  font-size: 1rem;
+  margin: 0;
+  margin-top: 0.2rem;
+  line-height: 1rem;
+}
+/* FLEX  */
+.nav-desktop {
+  display: flex;
+}
+.menu-movil {
+  display: none !important;
+}
+.div-sup-movil {
+  display: none;
+}
+.movil-si{
+  display: none;
+}
+#contact{
+  height: 40vh;
+  width: 100%;
+  background-color:rgb(26, 26, 26);
+}
+.img-icon-contact{
+  width: 30px;
+  height: 30px;
+}
+.section-register{
+  height: 140vh;
+}
+.img-contact-pig{
+  margin-left: 5vw;
+}
+/* MEDIA */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .menu-movil {
+    display: flex !important;
+  }
+  .div-sup-movil {
+    display: flex;
+    background-color: #3387cc;
+  }
+  .img-logo {
+    width: 25px;
+    height: 25px;
+  }
+  footer {
+    display: none !important;
+  }
+  .header-derecho{
+    width: 100vw ;
+  }
+  .movil-si{
+    display: flex;
+  }
+  .text-header-derecho{
+    width: 100%;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+  .btn-header-derecho{
+    width: 60%;
+  }
+  .img-header{
+    background-position: 55% 50%;
+    background-size: 70%;
+  }
+  .section-info-bank{
+    width: 96vw;
+  }
+  .info-bank-left{
+    width: 100vw;
+  }
+  .div-content-info-bank-left{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    
+    margin-left: 5vw;
+  }
+  .div-content-info-bank-left h2{
+    width: 80vw;
+    margin: 0 !important;
+  }
+  .div-content-info-bank-left p{
+    margin-top: 5vh;
+    width: 80vw;
+    font-size: 2.3vh;
+    line-height: 3vh;
+  }
+  .op-button{
+    background-color: white;
+    color: #fc4441 !important;
+  }
+  .div{
+    width: 300px;
+  }
+  .img-info-bank{
+    height: 50vh;
+    width: 90vw;
+    background-size: contain;
+  }
+  .operations{
+    height: 150vh;
+  }
+  .operations span{
+    width: 240px;
+  }
+  .operations span div{
+    height: 200px;
+    width: 200px;
+  }
+  .operations span img{
+    width: 120px;
+    height: 120px;
+  }
+  .section-register{
+    height: 150vh !important;
+    padding-bottom: 40vh;
+  }
+
+}
+.menu-movil-logout{
+  cursor: pointer;
+  background-image: url(../assets/icons8-logout-50.png);
+}
+.menu-movil-login{
+  background-image: url(./assets/user-white.png);
 }

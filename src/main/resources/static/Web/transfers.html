@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style-transfers.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../assets/logo-pig.png" type="image/x-icon" />
+  <!-- animaciones divs -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <title>Transfers || Mindhub Brothers</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- NAV desktop--------------- -->
+    <div class="nav-desktop justify-content-between align-items-center div-nav py-1">
+      <div class="ms-4 d-flex justify-content-center align-items-center">
+        <img src="../assets/logo-pig.png" class="img-logo" alt="mindhub brothers page logo" />
+        <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
+      </div>
+      <nav class="d-flex justify-content-evenly align-items-center">
+        <a class="a" href="../index.html">Home</a>
+        <a class="a" href="cards.html">Cards</a>
+        <a class="a" href="#">Transfers</a>
+        <a class="a log-out" href="#" @click="cerrarSesion">Log out</a>
+      </nav>
+    </div>
+    <!-- NAV movil--------------- -->
+    <div class="justify-content-center div-sup-movil align-items-center">
+      <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+      <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+    </div>
+    <nav class="menu-movil justify-content-evenly align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="../index.html" class="menu-movil-home"></a>
+        <p class="p-nav-movil">Home</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="./cards.html" class="menu-movil-cards"></a>
+        <p class="p-nav-movil">Cards</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class="menu-movil-transfer"></a>
+        <p class="p-nav-movil">transfer</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <a href="#" class=" menu-movil-logout" @click="cerrarSesion"></a>
+        <p class="p-nav-movil">Log out</p>
+      </div>
+
+    </nav>
+    <!-- HEADER-----------  -->
+    <header class="d-flex justify-content-between align-items-center">
+      <div data-aos="fade-right">
+        <div class="div-titulo">
+          <h1>Transfers</h1>
+          <a class="a a2" href="#options">Make new Transaction</a>
+        </div>
+      </div>
+      <img class="img-header-movil" src="../assets/transfers/Onlinetransactions-amico.svg"
+        alt="transaction image to another account" />
+      <div data-aos="fade-up" data-aos-anchor-placement="top-center">
+        <img class="img-header" src="../assets/transfers/Onlinetransactions-amico.svg"
+          alt="transaction image to another account" />
+      </div>
+
+
+    </header>
+    <!-- MAIN---------------  -->
+    <main class="d-flex justify-content-center align-items-center">
+      <!-- OPCIONES DE TRANSFERENCIA -->
+      <div data-aos="zoom-in-right">
+        <div id="options" class="options d-flex justify-content-evenly align-items-center flex-column">
+          <h1 class="text-white">New Transaction</h1>
+          <a href="#form-transfer" @click="asignvalueOwn"
+            class="card-option d-flex justify-content-evenly align-items-center">
+            <p class="text-white">Transfer to own account</p>
+            <img src="../assets/transfers/Enthusiastic-pana.png" alt="image of girl jumping"
+              class="img-button-transfer" />
+          </a>
+          <a href="#form-transfer" @click="asignValueAnother"
+            class="card-option d-flex justify-content-evenly align-items-center">
+            <p class="text-white">Transfer to another person</p>
+            <img src="../assets/transfers/High five-pana.svg" alt="image of man and woman high five"
+              class="img-button-transfer" />
+          </a>
+        </div>
+      </div>
+      <!-- FORMULARIO DE TRANSFERENCIA -->
+      <section id="form-transfer" class="section-transaction d-flex align-items-center fondo">
+        <div class="form-desktop" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+          <form class="form-transaction d-flex flex-column justify-content-center align-items-center">
+            <div v-if="destinyOfTransfer =='0'">
+              <p>Select a type of transfer</p>
+              <div class="arrow-white"></div>
+            </div>
+            <h2 v-if="destinyOfTransfer=='own'" class="mb-4">
+              Transfer to Own Account
+            </h2>
+            <h2 v-if="destinyOfTransfer=='another'" class="mb-4">
+              Transfer to Another Person
+            </h2>
+            <div v-if="destinyOfTransfer =='own'||destinyOfTransfer =='another'">
+              <!-- Cuenta de origen -->
+              <div class="form-outline mb-4">
+                <label>
+                  <p class="fs-5 m-0">Your Account</p>
+                  <select name="select" class="input-form text-center" v-model="accountOrigin" required>
+                    <option :value="cuenta.number" v-for="cuenta in cuentas">
+                      {{cuenta.number}}
+                    </option>
+                  </select>
+                </label>
+              </div>
+
+              <!-- Destinatario -->
+              <div class="form-outline mb-4">
+                <label>
+                  <p class="fs-5 m-0">Destiny Account</p>
+
+                  <select v-if="destinyOfTransfer=='own'" name="select" class="input-form text-center"
+                    v-model="accountDestiny" required>
+                    <option :value="cuenta.number" v-for="cuenta in cuentas">
+                      {{cuenta.number}}
+                    </option>
+                  </select>
+                  <input v-if="destinyOfTransfer=='another'" type="text" class="input-form" v-model="accountDestiny"
+                    required />
+                </label>
+              </div>
+              <div class="form-outline mb-4">
+                <label>
+                  <p class="fs-5 m-0">Monto: $</p>
+                  <input type="number" class="input-form" v-model="inputAmount" required />
+                </label>
+              </div>
+              <div class="form-outline mb-4">
+                <label>
+                  <p class="fs-5 m-0">Description:</p>
+                  <input type="text" class="input-form input-description" v-model="inputDescription" required />
+                </label>
+              </div>
+            </div>
+            <input type="submit" v-if="destinyOfTransfer =='own'||destinyOfTransfer =='another'" @click="sendMoney"
+              class="btn-send-money" value="Send Money">
+            </input>
+            <p class="text-danger" v-if="errorPetición!=0">{{errorPetición}}</p>
+          </form>
+        </div>
+        <form class="form-movil form-transaction flex-column justify-content-center align-items-center">
+          <div v-if="destinyOfTransfer =='0'">
+            <p>Select a type of transfer</p>
+          </div>
+          <h2 v-if="destinyOfTransfer=='own'" class="mb-4">
+            Transfer to Own Account
+          </h2>
+          <h2 v-if="destinyOfTransfer=='another'" class="mb-4">
+            Transfer to Another Person
+          </h2>
+          <div v-if="destinyOfTransfer =='own'||destinyOfTransfer =='another'">
+            <!-- Cuenta de origen -->
+            <div class="form-outline mb-4">
+              <label>
+                <p class="fs-5 m-0">Your Account</p>
+                <select name="select" class="input-form text-center" v-model="accountOrigin" required>
+                  <option :value="cuenta.number" v-for="cuenta in cuentas">
+                    {{cuenta.number}}
+                  </option>
+                </select>
+              </label>
+            </div>
+
+            <!-- Destinatario -->
+            <div class="form-outline mb-4">
+              <label>
+                <p class="fs-5 m-0">Destiny Account</p>
+
+                <select v-if="destinyOfTransfer=='own'" name="select" class="input-form text-center"
+                  v-model="accountDestiny" required>
+                  <option :value="cuenta.number" v-for="cuenta in cuentas">
+                    {{cuenta.number}}
+                  </option>
+                </select>
+                <input v-if="destinyOfTransfer=='another'" type="text" class="input-form" v-model="accountDestiny"
+                  required />
+              </label>
+            </div>
+            <div class="form-outline mb-4">
+              <label>
+                <p class="fs-5 m-0">Monto: $</p>
+                <input type="number" class="input-form" v-model="inputAmount" required />
+              </label>
+            </div>
+            <div class="form-outline mb-4">
+              <label>
+                <p class="fs-5 m-0">Description:</p>
+                <input type="text" class="input-form input-description" v-model="inputDescription" required />
+              </label>
+            </div>
+          </div>
+          <input type="submit" v-if="destinyOfTransfer =='own'||destinyOfTransfer =='another'" @click="sendMoney"
+            class="btn-send-money" value="Send Money">
+          </input>
+          <p class="text-danger" v-if="errorPetición!=0">{{errorPetición}}</p>
+        </form>
+
+      </section>
+
+    </main>
+    <!-- MODAL---------- -->
+    <div v-if="aparecerModal=='si'" class="modalWindow  d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex flex-column">
+        <div @click="cancelTransaction" class="cancel-transaction align-self-end"></div>
+        <div class="contenedor-mensaje-modal d-flex ">
+          <!-- DIV CONFIRMAR OPERACION -->
+          <div v-if="aparecerDivConfirm=='si'" class="div-confirm">
+            <h3 class="text-center py-2">Verification</h3>
+            <ul class="ms-4 py-4">
+              <li>Origin Account:</li>
+              <p>{{accountOrigin}}</p>
+              <li>Destinatary Account:</li>
+              <p>{{accountDestiny}}</p>
+              <li>Amount:</li>
+              <p>{{inputAmount}}</p>
+              <li>Description:</li>
+              <p>{{inputDescription}}</p>
+            </ul>
+            <div class="d-flex justify-content-center align-items-center">
+              <button @click="createTransaction" class="btn-send-money">Confirm
+              </button>
+              <button @click="cancelTransaction">
+                Cancel
+              </button>
+            </div>
+          </div>
+          <!-- DIV OPERACION EXITOSA -->
+          <div v-if="aparecerDivSuccess=='si'" class="div-success d-flex justify-content-between">
+            <div>
+              <div class="checked"></div>
+              <p class="text-div-success d-flex justify-content-center align-items-center">The transfer was a success!
+              </p>
+              <div class="d-flex justify-content-center">
+                <a href="./accounts.html" class="btn-see-cards a">See my accounts</a>
+              </div>
+            </div>
+
+            <div class="cont-verde d-flex justify-content-center align-items-center mje-great">Great!</div>
+          </div>
+          <!-- DIV OCURRIÓ UN ERRROR -->
+          <div v-if="aparecerDivError=='si'" class="div-error d-flex justify-content-between">
+            <div>
+              <div class="img-error"></div>
+
+              <div class="text-div-error d-flex flex-column justify-content-center align-items-center">
+                <p class="mje-error">Something went wrong</p>
+                <p class=" ms-4">{{errorPetición}}</p>
+              </div>
+
+              <div class="d-flex justify-content-center">
+                <button @click="cancelTransaction" class="btn-ok a">Ok</button>
+              </div>
+            </div>
+            <div class="cont-rojo d-flex justify-content-center align-items-center mje-great">Mmm...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER---------  -->
+    <footer class="footer text-white  justify-content-between align-items-center">
+      <div class="d-flex">
+        <img class="footer-icon" src="../assets/icons8-pig-60-gray.png" alt="piggy icon by mindhub brothers" />
+        <p class="tfooter">MINDHUB BROTHERS</p>
+      </div>
+
+      <div>
+        <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+      </div>
+    </footer>
+  </div>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="transfers.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
