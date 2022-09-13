@@ -1,0 +1,187 @@
+/*header*/
+.h1-details {
+  margin-top: 4rem;
+}
+header {
+  height: 40rem !important;
+}
+.cont-img-header {
+  box-sizing: border-box;
+}
+.img-header {
+  height: 100%;
+  width: 100%;
+  background-image: url(../assets/wallet.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+header div {
+  width: 50%;
+}
+header div h1 {
+  font-size: 6rem !important;
+}
+.header-cuenta {
+  background-color: rgb(223, 223, 223);
+  width: 30rem;
+  height: 30rem;
+}
+header a {
+  text-decoration: none;
+  background-color: rgb(141, 141, 141);
+  padding: 0.5rem 1rem;
+  color: white;
+}
+header a:hover {
+  color: #292929;
+}
+/* main */
+/* section1 CUENTAS */
+.bg-gray {
+  background-color: gray;
+}
+.cont-info {
+  width: 50rem;
+  height: 35rem;
+  background-color: #009dfb;
+}
+.cont-info h2 {
+  color: white;
+  font-size: 10rem;
+}
+.info {
+  background-color: #79ccfc;
+  border-bottom: rgb(255, 255, 255) 1px solid;
+}
+.info p {
+  color: rgb(63, 63, 63);
+  font-weight: 700;
+}
+#section1 {
+  height: 47rem;
+}
+#section1 a {
+  text-decoration: none;
+  background-color: rgb(94, 94, 94);
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+#section1 a:hover {
+  color: #292929;
+}
+.balance-info {
+  text-decoration: underline;
+}
+/* section 2 TRANSACCIONES */
+#section2 {
+  height: 47rem;
+}
+main {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+.text-h2-main {
+  margin-left: 16rem;
+}
+.bloque-transaccion {
+  width: 70%;
+  height: auto;
+  border: 1px rgb(255, 255, 255) solid;
+}
+.caja-balance {
+  box-sizing: border-box;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: large;
+  height: 3rem;
+  width: 15rem;
+  background-color: rgb(55, 89, 110, 0.4);
+  color: rgb(21, 97, 211);
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+@media only screen and (max-width: 700px) {
+  .bloque-transaccion {
+    width: 100%;
+    height: 60px;
+    font-size: 0.5rem !important;
+  }
+  .description-transac {
+    margin-top: 0.4rem;
+    font-size: 0.8rem !important;
+    line-height: 1rem;
+  }
+  .montoDebito,
+  .montoCredito {
+    font-size: 1.4rem !important;
+  }
+  .img-transaction-debit,
+  .img-transaction-credit {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    background-size: cover;
+  }
+}
+.description-transac {
+  font-size: 2rem;
+  color: #3b5768;
+  font-weight: 600;
+  margin: 0;
+}
+.dateprop {
+  color: #3b5768;
+}
+.date-transac {
+  margin: 0;
+  font-weight: 600;
+  color: #5d717e;
+}
+.cajaDebito {
+  background-color: rgb(199, 66, 66, 0.5);
+}
+.cajaDebito:hover {
+  background-color: rgb(199, 66, 66, 0.7);
+}
+.cajaCredito {
+  background-color: rgb(89, 145, 89, 0.5);
+}
+.cajaCredito:hover {
+  background-color: rgb(89, 145, 89, 0.7);
+}
+.monto-tipo {
+  margin-right: 0.2rem;
+  margin-top: 0.2rem;
+  width: 10rem;
+  height: 5rem;
+}
+.montoDebito,
+.montoCredito {
+  font-size: 2.2rem;
+  margin: 0;
+}
+.montoDebito {
+  color: red;
+}
+.montoCredito {
+  color: green;
+}
+.type {
+  margin: 0;
+  color: #009dfb;
+  font-weight: 600;
+}
+.img-transaction-debit,
+.img-transaction-credit {
+  width: 3rem;
+  height: 3rem;
+  background-size: cover;
+}
+.img-transaction-debit {
+  background-image: url(../assets/transfer-rojo.png);
+}
+.img-transaction-credit {
+  background-image: url(../assets/transfer-verde.png);
+}

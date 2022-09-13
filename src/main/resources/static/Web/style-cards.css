@@ -1,0 +1,159 @@
+/* HEADER */
+.header-izquierdo {
+  width: 50%;
+  background-color: white;
+}
+.header-derecho {
+  width: 50%;
+}
+header h1 {
+  margin: 0 !important;
+  font-size: 7rem;
+  line-height: 7rem;
+}
+.doble-flecha-header {
+  margin-top: 3rem;
+  width: 6rem;
+  height: 6rem;
+}
+/* MAIN */
+.section1 {
+  height: 47rem;
+  background-color: gray;
+}
+/* CARTA */
+.cont-card-back {
+  width: 30vw;
+}
+.credit-card-back {
+  height: 20rem;
+  width: 35rem;
+  background-image: url(../assets/card-back-2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+.credit-card {
+  height: 20rem;
+  width: 35rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+}
+.gold-back {
+  background-image: url(../assets/card-gold.jpg);
+}
+.titanium-back {
+  background-image: url(../assets/card-titanium.png);
+}
+.silver-back {
+  background-image: url(../assets/card-silver.jpg);
+}
+.cont-info-card {
+  height: 17rem;
+  width: 29rem;
+}
+.card-banco {
+  color: rgb(0, 157, 251, 0.6);
+  font-weight: 500;
+  height: 4.7rem;
+  width: 100%;
+  margin: 0;
+  font-size: 2.4rem;
+}
+.card-color-tipo {
+  height: 3rem;
+  width: 6rem;
+  margin-left: 6rem;
+  color: rgb(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+.card-number {
+  font-size: 2rem;
+  height: 2.7rem;
+  margin: 0;
+}
+.card-number p {
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: #141414 2px 2px 2px;
+  margin: 0;
+}
+.card-fechas {
+  height: 2.3rem;
+}
+.div-fechas {
+  height: 100%;
+}
+.card-descr-fecha {
+  color: rgb(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
+.card-fecha {
+  color: white;
+  text-shadow: #141414 2px 2px 2px;
+  font-weight: 500;
+}
+.card-titular {
+  letter-spacing: 2px;
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: #141414 2px 2px 2px;
+  margin: 0;
+}
+.card-type {
+  color: rgb(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+/* CARTA 3D */
+.cartaa {
+  position: relative;
+  width: 32rem;
+  height: 20rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 4rem;
+  margin-bottom: 5rem !important;
+}
+
+.cartaa .view {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  backface-visibility: hidden;
+  transition: 2s;
+  box-shadow: rgba(0, 0, 0, 1) 0px 3px 8px;
+  transform: perspective(2000px) rotateY(0deg);
+}
+
+.cartaa .front {
+  background: rgb(214, 239, 246);
+}
+
+.cartaa:hover .front {
+  transform: perspective(2000px) rotateY(180deg);
+}
+
+.cartaa .back {
+  background-color: #e3f2fd;
+  transform: perspective(2000px) rotateY(180deg);
+}
+
+.cartaa:hover .back {
+  transform: perspective(2000px) rotateY(360deg);
+}
+.cvv-card {
+  font-size: 1.6rem;
+  margin: 0;
+  margin-right: 4rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}

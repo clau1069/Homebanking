@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-accounts.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/logo-pig.png"
+      type="image/x-icon"
+    />
+    <!-- animaciones divs -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Your Accounts || Mindhub Brothers</title>
+  </head>
+  <body>
+    <!-- NAV PERSONALIZADO---------  -->
+    <!-- <nav
+      class="navegador d-flex flex-column justify-content-center align-items-center"
+    >
+      <div>
+        <a href="#" class="user-nav nav"></a>
+        <span class="mensaje-icon">User</span>
+      </div>
+      <div>
+        <a href="#" class="home-nav nav"></a>
+        <span class="mensaje-icon">Home</span>
+      </div>
+      <div>
+        <a href="cards.html" class="card-nav nav"></a>
+        <span class="mensaje-icon">Cards</span>
+      </div>
+    </nav> -->
+    <div id="app">
+      <div>
+        <!-- HEADER DESKTOP----------  -->
+        <header class="header-desktop">
+          <div class="header-izquierdo text-white d-flex flex-column">
+            <div class="ms-4 mt-2 d-flex align-items-center">
+              <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+              <p class="banco-header m-0 ms-3">Mindhub Brothers</p>
+            </div>
+            <div
+              class="mje-welcome-header text-white d-flex flex-column justify-content-center align-items-center"
+            >
+              <img src="../assets/img-melba.PNG" alt="" class="perfil" />
+              <h1>Welcome {{client.firstName}}!</h1>
+              <p class="text-white">We have missed you a lot!</p>
+              <a href="#main" class="text-white btn-seeoperations bg-grayy"
+                >See operations</a
+              >
+            </div>
+          </div>
+          <div class="header-derecho">
+            <nav class="container-fluid d-flex justify-content-evenly mt-3">
+              <a href="#">Home</a>
+              <a href="cards.html">Cards</a>
+              <a href="#" class="log-out" @click="cerrarSesion">Log out</a>
+            </nav>
+            <img src="../assets/Hello-rafiki.svg" alt="" />
+          </div>
+        </header>
+        <!-- HEADER MOVIL -->
+        <header class="header-movil flex-column">
+          <nav
+            class="menu-movil d-flex justify-content-evenly align-items-center"
+          >
+            <a href="" class="menu-movil-home"></a>
+            <a href="" class="menu-movil-cards"></a>
+            <a href="" class="menu-movil-profile"></a>
+          </nav>
+          <div
+            class="d-flex justify-content-center div-sup-movil align-items-center"
+          >
+            <img src="../assets/logo-pig.png" class="img-logo" alt="" />
+            <div class="m-0 ms-3 text-white">Mindhub Brothers</div>
+          </div>
+          <div
+            class="div-welcome-movil d-flex flex-column justify-content-center align-items-center"
+          >
+            <img src="../assets/img-melba.PNG" alt="" class="perfil" />
+            <h1 class="text-white">Welcome Melba!</h1>
+            <div class="img-header-movil"></div>
+            <p class="text-white">We have missed you a lot!</p>
+            <a href="#main" class="text-white btn-seeoperations bg-grayy"
+              >See operations</a
+            >
+          </div>
+        </header>
+        <!-- MAIN---------------  -->
+        <main class="d-flex flex-column justify-content-center flex-wrap">
+          <!-- Opciones SECTION-1-->
+          <section
+            class="section-1 d-flex justify-content-center align-items-center flex-column"
+          >
+            <div
+              data-aos="fade-right"
+              data-aos-offset="150"
+              data-aos-easing="ease-in-sine"
+              class="d-flex what-do-you-whant"
+              id="main"
+            >
+              <h1
+                class="text-center bg-primary text-white container-fluid m-0 d-flex justify-content-center align-items-center"
+                id="flech"
+              >
+                What do you whant to do?
+              </h1>
+            </div>
+            <div class="d-flex cartas-options">
+              <a
+                href="#Accounts"
+                class="me-4 text-center bg-gray rounded p-2 card-main-options"
+              >
+                <div>
+                  <h4 class="m-0">See</h4>
+                  <h3 class="m-0">Your Accounts</h3>
+                </div>
+                <div class="img-card-section1 img-chanchito"></div>
+              </a>
+
+              <a
+                href="#Loans"
+                class="me-4 text-center bg-gray rounded p-2 card-main-options"
+              >
+                <div>
+                  <h4 class="m-0">See</h4>
+                  <h3 class="m-0">Your Loans</h3>
+                </div>
+                <div class="img-card-section1 img-coins"></div>
+              </a>
+              <a
+                href="cards.html"
+                class="me-4 text-center bg-gray rounded p-2 card-main-options"
+              >
+                <div>
+                  <h4 class="m-0">See</h4>
+                  <h3 class="m-0">Your Cards</h3>
+                </div>
+                <div class="img-card-section1 img-cards"></div>
+              </a>
+            </div>
+          </section>
+          <!-- Accounts SECTION-2-->
+          <section id="Accounts" class="section-2 bg-dark d-flex">
+            <img
+              src="../assets/Plain credit card-rafiki.svg"
+              alt=""
+              class="img-accounts"
+            />
+            <div class="d-flex justify-content-center flex-column">
+              <div
+                data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+              >
+                <h2 class="ms-4 align-self-start text-h2-main mb-4">
+                  Your Accounts
+                </h2>
+              </div>
+              <div
+                data-aos="fade-right"
+                v-for="cuenta in accounts"
+                class="mb-4"
+              >
+                <a :href="'account.html?id='+cuenta.id" class="a-carta">
+                  <div class="div-carta rounded d-flex justify-content-between">
+                    <div>
+                      <h2 class="text-dark">{{cuenta.number}}</h2>
+                      <p>Creation Date: {{cuenta.creationDate.slice(0,10)}}</p>
+                    </div>
+                    <div>
+                      <h3 class="text-success">${{cuenta.balance}}</h3>
+                      <a
+                        :href="'account.html?id='+cuenta.id"
+                        class="d-flex align-self-end btn-see-more rounded"
+                        >See more</a
+                      >
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+          <!-- Loans SECTION-3-->
+          <section
+            id="Loans"
+            class="section-3 d-flex justify-content-between align-items-center"
+          >
+            <div
+              class="d-flex justify-content-center align-items-center flex-column div-section3"
+            >
+              <div
+                class="section3-texto rounded d-flex justify-content-center align-items-center flex-column"
+              >
+                <div
+                  data-aos="fade-right"
+                  data-aos-offset="300"
+                  data-aos-easing="ease-in-sine"
+                >
+                  <h2 class="ms-4 align-self-start text-h2-main mb-4">
+                    Your Loans
+                  </h2>
+                </div>
+                <div>
+                  <div
+                    v-for="loan in loans"
+                    class="carta-loans rounded m-4 d-flex"
+                  >
+                    <h2
+                      class="h2-loans p-2 rounded me-4 d-flex justify-content-center align-items-center"
+                    >
+                      {{loan.name}}
+                    </h2>
+                    <div>
+                      <p>Amount: ${{loan.amount}}</p>
+                      <p>Payments: {{loan.payments}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img src="../assets/Savings-pana.svg" alt="" class="loans-img" />
+          </section>
+        </main>
+        <!-- FOOTER---------  -->
+        <footer
+          class="footer text-white d-flex justify-content-between align-items-center"
+        >
+          <div class="d-flex">
+            <img
+              class="footer-icon"
+              src="../assets/icons8-pig-60-gray.png"
+              alt=""
+            />
+            <p class="tfooter">MINDHUB BROTHERS</p>
+          </div>
+
+          <div>
+            <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="accounts.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

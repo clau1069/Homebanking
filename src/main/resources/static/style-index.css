@@ -1,0 +1,210 @@
+header {
+  height: 100vh;
+  background: linear-gradient(90deg, #3387cc 0%, #40a8ff 74%);
+}
+.espacio {
+  width: 100%;
+  height: 10rem;
+}
+.ancor-2 {
+  background-color: #ff5652 !important;
+  padding: 8px 13px;
+}
+.ancor-2:hover {
+  background-color: #fc4441 !important;
+}
+header nav {
+  height: 60px;
+}
+header nav a {
+  padding: 2px 15px !important;
+}
+a {
+  text-decoration: none !important;
+  color: white !important;
+  padding: 2px 15px;
+  border-radius: 30px;
+}
+.ancor-1 {
+  padding: 8px 13px;
+  background-color: #ff8b7b;
+}
+.ancor-1:hover {
+  background-color: #ff5652;
+  color: white;
+}
+/* HEADER IZQUIERDO */
+.header-izquierdo {
+  width: 60%;
+}
+
+.banco-header {
+  font-weight: 600;
+  color: white;
+}
+.div-logo-nav {
+  margin-left: 2rem;
+  width: 100%;
+}
+
+.div-logo {
+  border-radius: 40px;
+}
+.div-logo:hover {
+  background-color: rgb(44, 127, 196);
+}
+.img-logo {
+  width: 40px;
+  height: 40px;
+}
+.div-nav {
+  width: 100%;
+  height: 60px;
+}
+.header-izquierdo nav {
+  width: 100%;
+}
+.marcador-pag-actual {
+  width: 10px;
+  height: 10px;
+  background-image: url(./assets/index/marcador.png);
+  transform: translateX(88px);
+}
+.img-header {
+  background-image: url(./assets/index/Savings-amico.svg);
+  width: 100%;
+  height: 90%;
+  background-position: 30% 50%;
+  background-repeat: no-repeat;
+  background-size: 75%;
+}
+/* HEADER DERECHO */
+.header-derecho {
+  width: 40%;
+  color: white;
+}
+.header-derecho nav {
+  width: 100%;
+  padding-right: 2rem;
+}
+.log-in {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+.log-in:hover {
+  background-color: #ff8b7b;
+}
+.sign-up {
+  background-color: white !important;
+  color: #009dfb !important;
+  font-weight: 500;
+  padding: 4px 18px;
+  border: #009dfb 1px solid;
+  border-radius: 2px;
+  margin-left: 2rem;
+}
+.text-header-derecho {
+  height: 90vh;
+}
+.text-header-derecho h1 {
+  width: min-content;
+  font-size: 4rem;
+  line-height: 4rem;
+}
+.text-header-derecho p {
+  font-weight: 500;
+}
+.btn-header-derecho {
+  width: 100%;
+}
+.btn-header-derecho a {
+  background-color: #ff5652 !important;
+  padding: 5px 10px !important;
+}
+.log-out {
+  color: #ffffff !important;
+  border: #ffffff 1px solid;
+}
+.log-out:hover {
+  background-color: #009dfb !important;
+  color: white !important;
+}
+/* SECTIONS */
+section {
+  min-width: 100%;
+  height: 100vh;
+}
+/* SECTION INFO BANK */
+.section-info-bank {
+  height: 100vh;
+  background: rgb(250, 250, 250);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 1) 86%,
+    rgba(51, 135, 204, 1) 100%
+  );
+}
+.info-bank-left,
+.info-bank-right {
+  width: 50vw;
+  height: 100%;
+}
+.div-content-info-bank-left {
+  background: linear-gradient(
+    90deg,
+    rgba(51, 135, 204, 1) 0%,
+    rgba(64, 168, 255, 1) 74%
+  );
+  color: white;
+  padding: 2rem;
+  border-radius: 0 50px 50px 0;
+}
+.info-bank-left h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+.img-computer {
+  border-radius: 40px;
+  height: 60%;
+  width: 100%;
+  background-image: url(./assets/index/gif-computer.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+/* SECTION INFO-OPERATIONS */
+#info-operations {
+  background-color: #3387cc;
+}
+/* SECTION FORM LOG IN */
+.section-logIn {
+  margin-top: 15rem;
+  background-color: #ff8b7b;
+}
+.img-planta-login,
+.img-tipo-login {
+  width: 20vw;
+  background-repeat: no-repeat;
+}
+.img-planta-login {
+  height: 100%;
+  background-image: url(./assets/index/planta-login.png);
+  background-position: 50% 90%;
+  background-size: 10vw;
+}
+.img-tipo-login {
+  height: 100%;
+  background-image: url(./assets/index/tipo-login.png);
+  background-size: 100%;
+  background-position: center;
+}
+.form-login {
+  width: 30rem;
+  height: min-content;
+  background-color: rgb(255, 255, 255);
+  color: gray;
+  padding: 2rem;
+  border-radius: 30px;
+}

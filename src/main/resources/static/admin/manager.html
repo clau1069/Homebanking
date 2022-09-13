@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homebanking || proyecto</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div id="app" class="d-flex justify-content-evenly">
+      <!-- TABLA REGISTRO DE CLIENTES -->
+      <div id="estructura-izquierda">
+        <form class="ms-4 mt-4" v-on:submit.prevent>
+          <table class="border border-success">
+            <thead class="border border-success">
+              <tr>
+                <th>Client Manager</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    v-model="objetocliente.firstName"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Last Name:</td>
+                <td>
+                  <input
+                    type="text"
+                    v-model="objetocliente.lastName"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Mail:</td>
+                <td>
+                  <input type="text" v-model="objetocliente.email" required />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <label>
+            <button type="submit" @click="añadirUsuario">Add Client</button>
+          </label>
+        </form>
+
+        <!-- TABLA LISTA DE CLIENTES -->
+        <form class="ms-4 mt-4">
+          <table class="border border-success">
+            <thead class="border border-success">
+              <tr>
+                <th>Clients List</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="fw-bold">
+                <td>Name</td>
+                <td class="pe-4">Last Name</td>
+                <td>Mail</td>
+              </tr>
+              <tr v-for="cliente in arrayClientes">
+                <td>{{cliente.firstName}}</td>
+                <td>{{cliente.lastName}}</td>
+                <td>{{cliente.email}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+      <div id="estructura-derecha" class="w-50 mt-4">
+        <h2>Client REST Response</h2>
+        <pre>{{respuesta}}</pre>
+      </div>
+    </div>
+    <!-- ------------------------------------FIN CONTENIDO------------------------------ -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="vue.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

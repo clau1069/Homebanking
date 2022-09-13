@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-cards.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      href="../assets/logo-pig.png"
+      type="image/x-icon"
+    />
+    <!-- animaciones divs -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Your Cards || Mindhub Brothers</title>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav
+      class="navegador d-flex flex-column justify-content-center align-items-center"
+    >
+      <div>
+        <a href="#" class="user-nav nav"></a>
+        <span class="mensaje-icon">User</span>
+      </div>
+      <div>
+        <a href="#" class="home-nav nav"></a>
+        <span class="mensaje-icon">Home</span>
+      </div>
+      <div>
+        <a href="#" class="card-nav nav"></a>
+        <span class="mensaje-icon">Cards</span>
+      </div>
+    </nav>
+    <div id="app">
+      <div
+        class="d-flex barra-sup-header justify-content-center align-items-center"
+      >
+        <div class="logo"></div>
+        <h1 class="h1-logo">Mindhub Brothers</h1>
+      </div>
+      <header class="d-flex container-fluid">
+        <div
+          class="header-izquierdo d-flex flex-column justify-content-center align-items-center"
+        >
+          <h1>Your</h1>
+          <h1>Cards</h1>
+          <a href="#section1"
+            ><img
+              class="doble-flecha-header d-flex container-fluid justify-content-center"
+              src="../assets/icons8-double-down.gif"
+              alt=""
+          /></a>
+        </div>
+        <img
+          class="header-derecho"
+          src="../assets/Credit card-bro.svg"
+          alt=""
+        />
+      </header>
+      <main>
+        <section
+          id="section1"
+          class="section1 d-flex justify-content-center align-items-center"
+        >
+          <div
+            class="cartaa"
+            v-for="card in cards"
+            v-show="card.type == 'CREDIT'"
+          >
+            <!-- FRONT CARD -->
+            <div
+              class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="credit-card d-flex justify-content-center align-items-center"
+                :class="card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'"
+              >
+                <div class="cont-info-card">
+                  <p class="card-banco">MINDHUB BROTHERS</p>
+                  <p class="card-color-tipo">{{card.color}}</p>
+                  <div
+                    class="card-number d-flex align-items-center justify-content-evenly"
+                  >
+                    <p>{{card.number.toString().slice(0,4)}}</p>
+                    <p>{{card.number.toString().slice(4,8)}}</p>
+                    <p>{{card.number.toString().slice(8,12)}}</p>
+                    <p>{{card.number.toString().slice(12,16)}}</p>
+                  </div>
+                  <div class="card-fechas d-flex align-items-center">
+                    <div class="d-flex flex-column div-fechas me-3">
+                      <p class="m-0 card-descr-fecha me-2">trhu</p>
+                      <p
+                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
+                      >
+                        {{card.trhuDate.slice(2,7)}}
+                      </p>
+                    </div>
+                    <div class="d-flex flex-column div-fechas">
+                      <p class="m-0 card-descr-fecha me-2">from</p>
+                      <p
+                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
+                      >
+                        {{card.fromDate.slice(2,7)}}
+                      </p>
+                    </div>
+                  </div>
+                  <p class="mt-2 card-titular">
+                    {{card.cardholder.toUpperCase()}}
+                  </p>
+                  <p class="card-type">{{card.type}}</p>
+                </div>
+              </div>
+            </div>
+            <!-- BACK CARD -->
+            <div
+              class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center"
+            >
+              <div
+                class="credit-card-back d-flex justify-content-end align-items-center"
+              >
+                <p class="cvv-card">{{card.cvv}}</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="cartaa"
+            v-for="card in cards"
+            v-show="card.type == 'DEBIT'"
+          >
+            <!-- FRONT CARD -->
+            <div
+              class="view front cont-cards container-fluid d-flex flex-column justify-content-center align-items-center"
+            >
+              <div
+                class="credit-card d-flex justify-content-center align-items-center"
+                :class="card.color =='GOLD'? 'gold-back' : card.color =='TITANIUM' ? 'titanium-back' : 'silver-back'"
+              >
+                <div class="cont-info-card">
+                  <p class="card-banco">MINDHUB BROTHERS</p>
+                  <p class="card-color-tipo">{{card.color}}</p>
+                  <div
+                    class="card-number d-flex align-items-center justify-content-evenly"
+                  >
+                    <p>{{card.number.toString().slice(0,4)}}</p>
+                    <p>{{card.number.toString().slice(4,8)}}</p>
+                    <p>{{card.number.toString().slice(8,12)}}</p>
+                    <p>{{card.number.toString().slice(12,16)}}</p>
+                  </div>
+                  <div class="card-fechas d-flex align-items-center">
+                    <div class="d-flex flex-column div-fechas me-3">
+                      <p class="m-0 card-descr-fecha me-2">trhu</p>
+                      <p
+                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
+                      >
+                        {{card.trhuDate.slice(2,7)}}
+                      </p>
+                    </div>
+                    <div class="d-flex flex-column div-fechas">
+                      <p class="m-0 card-descr-fecha me-2">from</p>
+                      <p
+                        class="m-0 d-flex justify-content-center align-items-center card-fecha"
+                      >
+                        {{card.fromDate.slice(2,7)}}
+                      </p>
+                    </div>
+                  </div>
+                  <p class="mt-2 card-titular">
+                    {{card.cardholder.toUpperCase()}}
+                  </p>
+                  <p class="card-type">{{card.type}}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BACK CARD -->
+            <div
+              class="view back cont-card-back container-fluid d-flex justify-content-center align-items-center"
+            >
+              <div
+                class="credit-card-back d-flex justify-content-end align-items-center"
+              >
+                <p class="cvv-card">{{card.cvv}}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer
+        class="footer text-white d-flex justify-content-between align-items-center"
+      >
+        <div class="d-flex">
+          <img
+            class="footer-icon"
+            src="../assets/icons8-pig-60-gray.png"
+            alt=""
+          />
+          <p class="tfooter">MINDHUB BROTHERS</p>
+        </div>
+
+        <div>
+          <p class="creat-footer">@Mindhub | Claudia Mariela Ruiz</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="cards.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
